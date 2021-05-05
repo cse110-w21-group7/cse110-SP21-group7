@@ -1,33 +1,45 @@
-# Standup April 29, 2021
+# Standup May 4, 2021
 ## Yuzi Lyu
 ### Present:
-- [X] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Wireframe for Collections page
+* Task 1
+* Task 2
+* etc.
 
 ### What I plan to do today:
-* ADRs for Collections page
+* Task 1
+* Task 2
+* etc.
 
 ### Blocking issues:
-* none so far
+* Blocker 1
+* Blocker 2
+* etc.
 
 
 
 ## Zhiyuan Zhang
 ### Present:
-- [X] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Reworked the flowchart of the collection section
+* Task 1
+* Task 2
+* etc.
 
 ### What I plan to do today:
-* Assist with ADR
+* Task 1
+* Task 2
+* etc.
 
 ### Blocking issues:
-* N/A
+* Blocker 1
+* Blocker 2
+* etc.
 
 
 
@@ -37,12 +49,11 @@
 - [ ] No
 
 ### What I did yesterday:
-* Refactored flowchart for daily logging to include markdown approach for tasks/notes/events
-* Standup template
+* Bullet Journal `pitch.md`
+* Pitch presentation slides with Yuzi
 
 ### What I plan to do today:
-* Assist with ADR
-* User stories (tentative)
+* Architecture diagrams for presentation
 
 ### Blocking issues:
 * N/A
@@ -51,42 +62,51 @@
 
 ## Rachel Doron
 ### Present:
-- [X] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* documnetation for weekly/monthly log
-* wireframe for weekly/monthly log 
+* Task 1
+* Task 2
+* etc.
 
 ### What I plan to do today:
-* ADR for weekly/monthly log 
+* Task 1
+* Task 2
+* etc.
 
 ### Blocking issues:
-* N/A
+* Blocker 1
+* Blocker 2
+* etc.
 
 
 
 ## Katherine Baker
 ### Present:
-- [X] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* documnetation for weekly/monthly log
-* wireframe for weekly/monthly log 
-
+* Task 1
+* Task 2
+* etc.
 
 ### What I plan to do today:
-* ADR for weekly/monthly log 
+* Task 1
+* Task 2
+* etc.
 
 ### Blocking issues:
-* N/A
+* Blocker 1
+* Blocker 2
+* etc.
 
 
 
 ## Alvin Wang
 ### Present:
-- [X] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
@@ -108,14 +128,14 @@
 
 ## William Chung
 ### Present:
-- [X] Yes
+- [x] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Update wireframes and project documentation for Daily Log Interface
+* Updated high-fidelity design for Daily Log Interface
 
 ### What I plan to do today:
-* Update ADRs for Daily Log Interface
+* Polish pitch presentation
 
 ### Blocking issues:
 * No blockers
@@ -124,30 +144,42 @@
 
 ## Thanh Tong
 ### Present:
-- [X] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Created wireframe and updated project documentation for the Index Interface
+* Task 1
+* Task 2
+* etc.
 
 ### What I plan to do today:
-* Work on the index ADRs
+* Task 1
+* Task 2
+* etc.
 
 ### Blocking issues:
-* no blockers
+* Blocker 1
+* Blocker 2
+* etc.
 
 
 
 ## Brett Herbst
 ### Present:
-- [X] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Helped created index wireframe
+* Task 1
+* Task 2
+* etc.
 
 ### What I plan to do today:
-* Complete index ADR
+* Task 1
+* Task 2
+* etc.
 
 ### Blocking issues:
-* N/A
+* Blocker 1
+* Blocker 2
+* etc.
