@@ -49,17 +49,17 @@
 
 ## Rachel Doron
 ### Present:
-- [X] Yes
-- [ ] No
+- [] Yes
+- [X] No
 
 ### What I did yesterday:
-* 
+* worked on the wire frame 
 
 ### What I plan to do today:
-* 
+* edit ADR format 
 
 ### Blocking issues:
-* 
+* N/A
 
 
 
