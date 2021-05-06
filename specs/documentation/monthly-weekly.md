@@ -21,6 +21,7 @@ OnClick: Display weekly view for corresponding date (Sunday - Saturday)
 Bullet denotes incomplete  
 "X" denotes complete  
 OnClick: Toggle complete/incomplete  
+hover: text turns blue 
 
 ### Date Button
 Button is at the top where the date is written.  
@@ -29,3 +30,4 @@ OnClick: Redirect to specified Daily Log
 
 ## End of Day Automation
 Any To-Do's not marked completed by the end of the day are automatically relocated to the next day.
+the Todo will appear bold in the day that the To-Do migrated to
