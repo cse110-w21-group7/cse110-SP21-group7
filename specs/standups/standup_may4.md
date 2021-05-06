@@ -62,23 +62,17 @@
 
 ## Rachel Doron
 ### Present:
-- [ ] Yes
+- [X] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Task 1
-* Task 2
-* etc.
+* high fidelity design for weekly/monthly log 
 
 ### What I plan to do today:
-* Task 1
-* Task 2
-* etc.
+* polish high fidelity design 
 
 ### Blocking issues:
-* Blocker 1
-* Blocker 2
-* etc.
+* N/A
 
 
 
