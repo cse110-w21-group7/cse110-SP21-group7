@@ -1,51 +1,52 @@
 # Standup May 4, 2021
 ## Yuzi Lyu
 ### Present:
-- [x] Yes
+- [X] Yes
 - [ ] No
 
 ### What I did yesterday:
-
-* High fidelity Collections prototype
-
+* Project Pitch Presentation
+* Login High-fi prototype
 
 ### What I plan to do today:
-* High fidelity log in prototype
-
+* delegate roles
 ### Blocking issues:
-
 * N/A
-
 
 
 
 ## Zhiyuan Zhang
 ### Present:
-- [X] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Reworked Collection ADR
+* Task 1
+* Task 2
+* etc.
 
 ### What I plan to do today:
-* Figure out how to do log in with google
+* Task 1
+* Task 2
+* etc.
 
 ### Blocking issues:
-* N/A
+* Blocker 1
+* Blocker 2
+* etc.
 
 
 
 ## Noah Teshima
 ### Present:
-- [X] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Bullet Journal `pitch.md`
-* Pitch presentation slides with Yuzi
+* task
 
 ### What I plan to do today:
-* Architecture diagrams for presentation
+* task
 
 ### Blocking issues:
 * N/A
@@ -54,17 +55,23 @@
 
 ## Rachel Doron
 ### Present:
-- [X] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* high fidelity design for weekly/monthly log 
+* Task 1
+* Task 2
+* etc.
 
 ### What I plan to do today:
-* polish high fidelity design 
+* Task 1
+* Task 2
+* etc.
 
 ### Blocking issues:
-* N/A
+* Blocker 1
+* Blocker 2
+* etc.
 
 
 
@@ -114,14 +121,14 @@
 
 ## William Chung
 ### Present:
-- [x] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Updated high-fidelity design for Daily Log Interface
+* task
 
 ### What I plan to do today:
-* Polish pitch presentation
+* task
 
 ### Blocking issues:
 * No blockers
@@ -156,10 +163,12 @@
 - [ ] No
 
 ### What I did yesterday:
-* Finishing touches on High fidelity Index
+* Fixed High Fidelity Index
+* Looked into databases
 
 ### What I plan to do today:
-* Finilize high fidelity Index
+* Do more research on sign in page
+* TBD
 
 ### Blocking issues:
 * None
