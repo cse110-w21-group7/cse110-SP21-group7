@@ -48,23 +48,17 @@
 
 ## Rachel Doron
 ### Present:
-- [ ] Yes
+- [X] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Task 1
-* Task 2
-* etc.
+* got assigned databases task 
 
 ### What I plan to do today:
-* Task 1
-* Task 2
-* etc.
+* get started on coding 
 
 ### Blocking issues:
-* Blocker 1
-* Blocker 2
-* etc.
+* N/A
 
 
 
