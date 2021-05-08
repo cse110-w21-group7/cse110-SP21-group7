@@ -1,34 +1,29 @@
-# Standup May 4, 2021
+# Standup May 8, 2021
 ## Yuzi Lyu
-### Present:
-- [x] Yes
-- [ ] No
-
-### What I did yesterday:
-
-* High fidelity Collections prototype
-
-
-### What I plan to do today:
-* High fidelity log in prototype
-
-### Blocking issues:
-
-* N/A
-
-
-
-
-## Zhiyuan Zhang
 ### Present:
 - [X] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Reworked Collection ADR
+* exploratory programming on html and css
 
 ### What I plan to do today:
-* Figure out how to do log in with google
+* 
+### Blocking issues:
+* N/A
+
+
+
+## Zhiyuan Zhang
+### Present:
+- [ ] Yes
+- [ ] No
+
+### What I did yesterday:
+* 
+
+### What I plan to do today:
+* 
 
 ### Blocking issues:
 * N/A
@@ -37,38 +32,21 @@
 
 ## Noah Teshima
 ### Present:
-- [X] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Bullet Journal `pitch.md`
-* Pitch presentation slides with Yuzi
+*
 
 ### What I plan to do today:
-* Architecture diagrams for presentation
+*
 
 ### Blocking issues:
-* N/A
+* 
 
 
 
 ## Rachel Doron
-### Present:
-- [X] Yes
-- [ ] No
-
-### What I did yesterday:
-* high fidelity design for weekly/monthly log 
-
-### What I plan to do today:
-* polish high fidelity design 
-
-### Blocking issues:
-* N/A
-
-
-
-## Katherine Baker
 ### Present:
 - [ ] Yes
 - [ ] No
@@ -87,6 +65,22 @@
 * Blocker 1
 * Blocker 2
 * etc.
+
+
+
+## Katherine Baker
+### Present:
+- [ ] Yes
+- [ ] No
+
+### What I did yesterday:
+* 
+
+### What I plan to do today:
+* N/A
+
+### Blocking issues:
+* 
 
 
 
@@ -114,14 +108,14 @@
 
 ## William Chung
 ### Present:
-- [x] Yes
+- [ ] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Updated high-fidelity design for Daily Log Interface
+* 
 
 ### What I plan to do today:
-* Polish pitch presentation
+* 
 
 ### Blocking issues:
 * No blockers
@@ -131,29 +125,33 @@
 ## Thanh Tong
 ### Present:
 - [ ] Yes
-- [X] No
+- [ ] No
 
 ### What I did yesterday:
-* Updated some design for the Index interface
-
+* 
 ### What I plan to do today:
-* Finalize high-fidelity design for Index page
+* Task 1
+* Task 2
+* etc.
 
 ### Blocking issues:
-* Making sure the bookshelf looks clean and minimalistic
+* Blocker 1
+* Blocker 2
+* etc.
 
 
 
 ## Brett Herbst
 ### Present:
-- [X] Yes
+- [] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Finishing touches on High fidelity Index
+*
 
 ### What I plan to do today:
-* Finilize high fidelity Index
+* 
 
 ### Blocking issues:
 * None
+
