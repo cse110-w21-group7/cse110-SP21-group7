@@ -52,3 +52,13 @@ function newElement () {
   }
   document.getElementById('myInput').value = ''
 }
+
+/**
+ * Business logic subroutine for updating the collection tasks
+ */
+
+ function setTask (log) {
+  const task = log.properties.task
+  const taskItem = document.querySelector('task-item')
+  taskItem.task = task
+}
