@@ -238,3 +238,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     insertMedia(event, MEDIA_TYPE.VIDEO)
   })
 })
+
+/**
+ * Business logic subroutine for updating the collection tasks
+ */
+ function editTask () {
+  const updatedTask = document.getElementById('myInput').value
+  const taskItem = document.querySelector('task-item')
+  taskItem.task = updatedTask
+}
