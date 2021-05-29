@@ -57,8 +57,8 @@ function newElement () {
  * Business logic subroutine for updating the collection tasks
  */
 
- function setTask (log) {
-  const task = log.properties.task
+ function editTask () {
+  const updatedTask = document.getElementById('myInput').value
   const taskItem = document.querySelector('task-item')
-  taskItem.task = task
+  taskItem.task = updatedTask
 }
