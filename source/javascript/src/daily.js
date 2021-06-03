@@ -67,10 +67,10 @@ radioContainer.addEventListener('change', () => {
     // reset input field done
     date.type = 'date'
     cancelBtn.style.display = 'initial'
+    // date.addEventListener('change', () => {
+    //   time.type = 'time'
+    // })
     date.addEventListener('change', () => {
-      time.type = 'time'
-    })
-    time.addEventListener('change', () => {
       text.type = 'text'
       saveBtn.style.visibility = 'visible'
       cancelBtn.style.visibility = 'visible'
@@ -89,8 +89,7 @@ radioContainer.addEventListener('change', () => {
     date.type = 'date'
     date.addEventListener('change', () => {
       text.type = 'text'
-      time.hidden = false
-      // time.type = 'hidden'
+      time.type = 'hidden'
       saveBtn.style.visibility = 'visible'
       cancelBtn.style.visibility = 'visible'
     })
@@ -119,10 +118,10 @@ radioContainer.addEventListener('change', () => {
   taskRadio.disabled = true
   noteRadio.disabled = true
   date.hidden = false
+  // date.addEventListener('change', () => {
+  //   time.hidden = false
+  // })
   date.addEventListener('change', () => {
-    time.hidden = false
-  })
-  time.addEventListener('change', () => {
     text.hidden = false
   })
   text.addEventListener('change', () => {
