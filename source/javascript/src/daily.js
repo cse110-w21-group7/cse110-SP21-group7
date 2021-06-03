@@ -23,9 +23,9 @@ const realSavBtn = document.getElementById('save')
 // saveBtn.addEventListener('click', () => {
 //   realSavBtn.click()
 // })
-// cancelBtn.addEventListener('click', () => {
-//   realCanBtn.click()
-// })
+cancelBtn.addEventListener('click', () => {
+  realCanBtn.click()
+})
 
 /*
  * This onclick toggles the display style of the quote to none
@@ -47,21 +47,26 @@ const realSavBtn = document.getElementById('save')
 
 radioContainer.addEventListener('change', () => {
   if (refRadio.checked) {
+    document.getElementById('reflect').style.color = "#ddaf94"
     text.type = 'text'
     date.type = 'hidden'
     time.type = 'hidden'
     saveBtn.style.visibility = 'visible'
     cancelBtn.style.visibility = 'visible'
+    text.hidden = false
+    cancelBtn.style.display = 'initial'
   } else if (eventRadio.checked) {
+    document.getElementById('event').style.color = "#ddaf94"
     // reset input field start
     saveBtn.style.visibility = 'hidden'
-    cancelBtn.style.visibility = 'hidden'
+    // cancelBtn.style.visibility = 'hidden'
     text.type = 'hidden'
     text.value = ''
     date.value = ''
     time.value = ''
     // reset input field done
     date.type = 'date'
+    cancelBtn.style.display = 'initial'
     date.addEventListener('change', () => {
       time.type = 'time'
     })
@@ -71,22 +76,27 @@ radioContainer.addEventListener('change', () => {
       cancelBtn.style.visibility = 'visible'
     })
   } else if (taskRadio.checked) {
+    document.getElementById('task').style.color = "#ddaf94"
     // reset input field start
     date.value = ''
+    time.value = ''
     text.value = ''
     saveBtn.style.visibility = 'hidden'
-    cancelBtn.style.visibility = 'hidden'
+    // cancelBtn.style.visibility = 'hidden'
     text.type = 'hidden'
-    time.type = 'hidden'
+    // time.type = 'hidden'
     // reset input field done
     date.type = 'date'
     date.addEventListener('change', () => {
       text.type = 'text'
-      time.type = 'hidden'
+      time.hidden = false
+      // time.type = 'hidden'
       saveBtn.style.visibility = 'visible'
       cancelBtn.style.visibility = 'visible'
     })
+    cancelBtn.style.display = 'initial'
   } else if (noteRadio.checked) {
+    document.getElementById('note').style.color = "#ddaf94"
     date.type = 'hidden'
     text.value = ''
     saveBtn.style.visibility = 'hidden'
@@ -96,11 +106,48 @@ radioContainer.addEventListener('change', () => {
     text.type = 'text'
     saveBtn.style.visibility = 'visible'
     cancelBtn.style.visibility = 'visible'
+    text.hidden = false
+    cancelBtn.style.display = 'initial'
   } else {
     text.type = 'hidden'
     date.type = 'hidden'
     time.type = 'hidden'
+    cancelBtn.style.display = 'initial'
   }
+  refRadio.disabled = true
+  eventRadio.disabled = true
+  taskRadio.disabled = true
+  noteRadio.disabled = true
+  date.hidden = false
+  date.addEventListener('change', () => {
+    time.hidden = false
+  })
+  time.addEventListener('change', () => {
+    text.hidden = false
+  })
+  text.addEventListener('change', () => {
+    saveBtn.style.display = 'initial'
+  })
+})
+
+realCanBtn.addEventListener('click', () => {
+  date.hidden = true
+  time.hidden = true
+  text.hidden = true
+  saveBtn.style.display = 'none'
+  cancelBtn.style.display = 'none'
+  refRadio.disabled = false
+  eventRadio.disabled = false
+  taskRadio.disabled = false
+  noteRadio.disabled = false
+  refRadio.checked = false
+  eventRadio.checked = false
+  taskRadio.checked = false
+  noteRadio.checked = false
+  document.getElementById('reflect').style.color = "black"
+  document.getElementById('event').style.color = "black"
+  document.getElementById('task').style.color = "black"
+  document.getElementById('note').style.color = "black"
 })
 
 collapse.addEventListener('click', () => {
@@ -167,8 +214,8 @@ function newElement () {
 function hideEverything () {
   date.type = 'hidden'
   text.value = ''
-  // saveBtn.style.display = 'none'
-  // cancelBtn.style.display = 'none'
+  realSavBtn.style.display = 'none'
+  realCanBtn.style.display = 'none'
   text.type = 'hidden'
   time.type = 'hidden'
 }
@@ -198,12 +245,40 @@ function getLogInfoAsJSON (cb) {
       if (cursor) {
         const dateConverter = new DateConverter(Number(cursor.value.current_log))
         console.log(cursor.value)
+        let match = false
         cursor.value.$defs['daily-logs'].forEach((log, index) => {
           if (dateConverter.equals(Number(log.properties.date.time))) {
+            match = true
             cb.bind(this)
             cb(cursor.value.$defs['daily-logs'][index])
           }
         })
+        if (!match) {
+          // TODO: creating new
+          // {
+          //   "type": "object",
+          //   "required": [ "date", "description" ],
+          //   "properties": {
+          //     "date": {
+          //       "type": "string",
+          //       "time": "",
+          //       "description": "The date of the event."
+          //     },
+          //     "events": [],
+          //     "tasks": [],
+          //     "notes": [],
+          //   "reflection": [],
+          //     "mood": {
+          //       "type": "number",
+          //       "multipleOf": 1,
+          //       "minimum": 0,
+          //       "exclusiveMaximum": 100,
+          //       "value": 50,
+          //       "description": "Daily mood on a range of 0-99."
+          //     }
+          //   }
+          // }
+        }
       }
     }
   })
