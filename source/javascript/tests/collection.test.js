@@ -5,9 +5,13 @@ describe('testing creating a new collection', () => {
   it('Test1: creating a new collection', async () => {
     const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection.html')
+    await page.goto('http://127.0.0.1:5502/source/html/collection.html')
+    page.on('dialog', async (notif) => {
+      console.log(notif.defaultValue("Collection name"));
+    });
 
-    await page.click('#add', { clickCount: 1 })
+    const collections = page.$$('.collection-area')
+    expect(collections.length).to.not.equal(0)
 
     await browser.close()
   })
