@@ -29,8 +29,10 @@ jobs:
     - run: |
         sudo apt-get update
         sudo apt-get install -y libgbm1
-    - run: npm run build --if-present
-    - run: npm test
+    - name: gabrielbb/xvfb-action
+      uses: GabrielBB/xvfb-action@v1
+      with:
+        run: npm test
 
   lint:
     name: Linting and StandardJS styleguide enforcement ${{ matrix.node_version }}
