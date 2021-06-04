@@ -26,6 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
+    - run: |
+      sudo apt-get update
+      sudo apt-get install -y libgbm1
     - run: npm run build --if-present
     - run: npm test
 
