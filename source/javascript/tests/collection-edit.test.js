@@ -1,14 +1,12 @@
 const puppeteer = require('puppeteer')
 const expect = require('chai').expect
 
-
 describe('testing collection edit page', () => {
-
-   /*beforeEach(function() {
+  /* beforeEach(function() {
 
     this.setTimeout(10000);
-  
-  });*/ 
+
+  }); */
   it('Test1: adding a task', async () => {
     const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
     const page = await browser.newPage()
@@ -16,11 +14,11 @@ describe('testing collection edit page', () => {
 
     await page.type('#myInput', 'hello')
     await page.$eval('.addBtn', (element) => {
-      element.click();
-    });
+      element.click()
+    })
 
     await browser.close()
-    //done() 
+    // done()
   })
 
   it('Test2: adding multiple tasks', async () => {
@@ -30,21 +28,20 @@ describe('testing collection edit page', () => {
 
     await page.type('#myInput', 'hello')
     await page.$eval('.addBtn', (element) => {
-      element.click();
-    });
-    
+      element.click()
+    })
 
     await page.type('#myInput', 'world')
     await page.$eval('.addBtn', (element) => {
-      element.click();
-    });
+      element.click()
+    })
 
     await page.type('#myInput', 'hi')
     await page.$eval('.addBtn', (element) => {
-      element.click();
-    });
+      element.click()
+    })
 
-    const tasks = 
+    const tasks =
 
     await browser.close()
   })
@@ -55,12 +52,12 @@ describe('testing collection edit page', () => {
     await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
 
     await page.$eval('#collapse', (element) => {
-      element.click();
-    });
+      element.click()
+    })
 
     await page.$eval('#collapse', (element) => {
-      element.click();
-    });
+      element.click()
+    })
 
     await browser.close()
   })
@@ -71,8 +68,8 @@ describe('testing collection edit page', () => {
     await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
 
     await page.$eval('#add-image-btn', (element) => {
-      element.click();
-    });
+      element.click()
+    })
 
     await browser.close()
   })
@@ -83,12 +80,12 @@ describe('testing collection edit page', () => {
     await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
 
     await page.$eval('#collapse', (element) => {
-      element.click();
-    });
+      element.click()
+    })
 
     await page.$eval('#add-video-btn', (element) => {
-      element.click();
-    });
+      element.click()
+    })
 
     await browser.close()
   })

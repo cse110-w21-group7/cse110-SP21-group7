@@ -1,7 +1,6 @@
 const puppeteer = require('puppeteer')
 const expect = require('chai').expect
 
-
 describe('testing index page', () => {
   it('Test1: Clicking the add icon, new URL should contain daily.html', async () => {
     const browser = await puppeteer.launch({ headless: true, slowMo: 500 })

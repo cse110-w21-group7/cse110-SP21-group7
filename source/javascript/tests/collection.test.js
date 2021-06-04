@@ -7,8 +7,8 @@ describe('testing creating a new collection', () => {
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5502/source/html/collection.html')
     page.on('dialog', async (notif) => {
-      console.log(notif.defaultValue("Collection name"));
-    });
+      console.log(notif.defaultValue('Collection name'))
+    })
 
     const collections = page.$$('.collection-area')
     expect(collections.length).to.not.equal(0)
