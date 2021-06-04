@@ -2,9 +2,18 @@ const puppeteer = require('puppeteer')
 const expect = require('chai').expect
 
 describe('testing creating a new collection', () => {
+  let browser, page
+
+  before(async () => {
+    browser = await puppeteer.launch(
+      { headless: true,
+        args: [`--no-sandbox`,
+        `--disable-setuid-sandbox`]
+      })
+    page = await browser.newPage()
+  })
+
   it('Test1: creating a new collection', async () => {
-    const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
-    const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5502/source/html/collection.html')
     page.on('dialog', async (notif) => {
       console.log(notif.defaultValue('Collection name'))
@@ -12,8 +21,6 @@ describe('testing creating a new collection', () => {
 
     const collections = page.$$('.collection-area')
     expect(collections.length).to.not.equal(0)
-
-    await browser.close()
   })
 
   it('Test2: creating multiple new collections', async () => {
