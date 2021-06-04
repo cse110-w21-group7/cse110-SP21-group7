@@ -1,7 +1,14 @@
 const puppeteer = require('puppeteer')
 const expect = require('chai').expect
 
+
 describe('testing collection edit page', () => {
+
+   /*beforeEach(function() {
+
+    this.setTimeout(10000);
+  
+  });*/ 
   it('Test1: adding a task', async () => {
     const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
     const page = await browser.newPage()
@@ -13,9 +20,10 @@ describe('testing collection edit page', () => {
     });
 
     await browser.close()
+    //done() 
   })
 
-  it('Test1: adding multiple tasks', async () => {
+  it('Test2: adding multiple tasks', async () => {
     const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
