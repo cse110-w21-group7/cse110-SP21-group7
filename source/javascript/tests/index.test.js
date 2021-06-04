@@ -3,14 +3,14 @@ const expect = require('chai').expect
 
 describe('testing index page', () => {
   it('Test1: Clicking the add icon, new URL should contain daily.html', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+    const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/index.html')
+    await page.goto('http://127.0.0.1:5502/source/html/index.html')
 
     await page.click('#cb', { clickCount: 1 })
 
     const url = await page.url()
-    expect(url).to.be.include('127.0.0.1:5500/source/html/daily.html')
+    expect(url).to.be.include('/source/html/daily.html')
     await browser.close()
   })
 

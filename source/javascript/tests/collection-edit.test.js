@@ -1,22 +1,32 @@
 const puppeteer = require('puppeteer')
 const expect = require('chai').expect
 
+
 describe('testing collection edit page', () => {
+
+   /*beforeEach(function() {
+
+    this.setTimeout(10000);
+  
+  });*/ 
   it('Test1: adding a task', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+    
+    const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
+    await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
+    await page.reload({ waitUntil: ["networkidle0", "domcontentloaded"] })
 
     await page.type('#myInput', 'hello')
     await page.click('.addBtn', { clickCount: 1 })
 
     await browser.close()
+    //done() 
   })
 
-  it('Test1: adding multiple tasks', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+  it('Test2: adding multiple tasks', async () => {
+    const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
+    await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
 
     await page.type('#myInput', 'hello')
     await page.click('.addBtn', { clickCount: 1 })
@@ -31,9 +41,9 @@ describe('testing collection edit page', () => {
   })
 
   it('Test3: expanding and collapsing collection edit view', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+    const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
+    await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
 
     await page.click('#collapse', { clickCount: 1 })
 
@@ -47,9 +57,9 @@ describe('testing collection edit page', () => {
   })
 
   it('Test4: adding image to collection', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+    const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
+    await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
 
     await page.click('#collapse', { clickCount: 1 })
 
@@ -61,9 +71,9 @@ describe('testing collection edit page', () => {
   })
 
   it('Test5: adding video to collection', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+    const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
+    await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
 
     await page.click('#collapse', { clickCount: 1 })
 
