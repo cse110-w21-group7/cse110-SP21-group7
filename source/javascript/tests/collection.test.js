@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer')
 const expect = require('chai').expect
 
 describe('testing creating a new collection', () => {
-  it('Test1: creating a new collection', async () => {
+  /*it('Test1: creating a new collection', async () => {
     const browser = await puppeteer.launch({ headless: true, slowMo: 500 })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5502/source/html/collection.html')
@@ -26,5 +26,5 @@ describe('testing creating a new collection', () => {
 
   it('Test5: creating new collection and going to the collection edit page', async () => {
 
-  })
+  })*/
 })
