@@ -26,8 +26,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - run: |
+        sudo apt-get update
+        sudo apt-get install -y libgbm1
+    - name: gabrielbb/xvfb-action
+      uses: GabrielBB/xvfb-action@v1
+      with:
+        run: npm test
 
   lint:
     name: Linting and StandardJS styleguide enforcement ${{ matrix.node_version }}
