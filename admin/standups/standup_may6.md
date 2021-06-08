@@ -57,23 +57,17 @@ DB: Brett, Rachel, Alvin
 
 ## Rachel Doron
 ### Present:
-- [ ] Yes
+- [X] Yes
 - [ ] No
 
 ### What I did yesterday:
-* Task 1
-* Task 2
-* etc.
+* added changes to high fidelity for weekly/monthly log 
 
 ### What I plan to do today:
-* Task 1
-* Task 2
-* etc.
+* pick roles
 
 ### Blocking issues:
-* Blocker 1
-* Blocker 2
-* etc.
+* N/A
 
 
 

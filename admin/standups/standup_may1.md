@@ -49,14 +49,14 @@
 
 ## Rachel Doron
 ### Present:
-- [X] Yes
-- [ ] No
+- [] Yes
+- [X] No
 
 ### What I did yesterday:
-* 
+* worked on the weekly/monthly wireframe
 
 ### What I plan to do today:
-* 
+* edit ADR format 
 
 ### Blocking issues:
 * 
