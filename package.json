@@ -60,6 +60,11 @@
   },
   "homepage": "https://github.com/cse110-w21-group7/cse110-SP21-group7#readme",
   "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/register": "^7.13.16",
+    "@sinonjs/referee-sinon": "^9.0.2",
     "chai": "^4.3.4",
     "eslint": "^7.26.0",
     "eslint-config-standard": "^16.0.2",

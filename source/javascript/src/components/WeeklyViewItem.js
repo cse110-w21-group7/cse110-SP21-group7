@@ -23,6 +23,7 @@ class WeeklyViewItem extends HTMLElement {
   render () {
     this.shadowRoot.innerHTML = `<style>
                                     #single-weekday {
+                                      overflow-wrap:break-word;
                                       padding: 5px;
                                       display: flex;
                                       flex-direction: column;
@@ -32,9 +33,8 @@ class WeeklyViewItem extends HTMLElement {
                                     }
                                     #single-weekday > p {
                                       font-family: "Montserrat", sans-serif;
-                                      padding-top: 10px;
-                                      padding-bottom: 10px;
-                                      font-size: 16px;
+                                      padding:10px;
+                                      font-size: 1vw;
                                       margin:10px;
                                       box-shadow: 5px 10px 5px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
                                     }

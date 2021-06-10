@@ -1,4 +1,5 @@
 import { IndexedDBWrapper } from '../indexedDB/IndexedDBWrapper.js'
+import { Router, ROUTES } from '../utils/Router.js'
 
 const MEDIA_TYPE = {
   IMAGE: 0,
@@ -27,7 +28,7 @@ class MediaItem extends HTMLElement {
     this.shadowRoot.innerHTML = `<style>
                                     .container {
                                         display: flex;
-                                        width: 400px;
+                                        width: 300px;
                                         height: auto;
                                     }
                                     .media-wrapper {
@@ -100,7 +101,9 @@ class MediaItem extends HTMLElement {
         store.openCursor().onsuccess = function (event) {
           const cursor = event.target.result
           if (cursor) {
-            const collectionName = cursor.value.current_collection
+            const router = new Router()
+            const params = router.url.searchParams
+            const collectionName = params.get('name').replace(/\+/g, ' ')
             const collection = cursor.value.properties.collections.find((element) => {
               return element.name === collectionName
             })

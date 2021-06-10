@@ -3,13 +3,12 @@ const expect = require('chai').expect
 
 describe('testing daily log page', () => {
 
- /*it('Test1: adding a reflection', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+ it('Test1: adding a reflection', async () => {
+    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5502/source/html/daily.html')
     
     await page.evaluate(() => {
-      //let input = document.querySelector('input[type="radio"]')
       let input = document.querySelector('input[id="input1"]')
       input.click() 
    })
@@ -18,19 +17,19 @@ describe('testing daily log page', () => {
 
 
    await page.type('#input-area', 'hello')
-   await page.click('#cb1', { clickCount: 1 }) 
+   await page.click('#cb2', { clickCount: 1 }) 
 
     
 
     await browser.close()
 
 
-  })*/ 
+  })
 
 
-  /*it('Test2: adding an event', async () => {
+  it('Test2: adding an event', async () => {
 
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5502/source/html/daily.html')
 
@@ -42,19 +41,23 @@ describe('testing daily log page', () => {
 
    await page.waitFor(2000)
 
+   await page.type('#time-input', '0120a')
+   await page.type('#date-input', '04082021')
+   
 
-   //await page.type('#input-area', 'hello')
-   //await page.click('#cb1', { clickCount: 1 }) 
+
+   await page.type('#input-area', 'hello')
+   await page.click('#cb2', { clickCount: 1 }) 
 
     
 
     await browser.close()
 
-  })*/
+  })
 
-  /*it('Test3: adding a task', async () => {
+  it('Test3: adding a task', async () => {
 
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5502/source/html/daily.html')
 
@@ -65,14 +68,20 @@ describe('testing daily log page', () => {
  })
 
    await page.waitFor(2000)
+   
+   await page.type('#date-input', '04082021')
+
+   await page.type('#input-area', 'hello')
+   await page.click('#cb2', { clickCount: 1 }) 
+   
 
     await browser.close()
 
-  })*/ 
+  }) 
 
-  /*it('Test4: adding a note', async () => {
+  it('Test4: adding a note', async () => {
 
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5502/source/html/daily.html')
 
@@ -85,15 +94,15 @@ describe('testing daily log page', () => {
    await page.waitFor(2000)
 
    await page.type('#input-area', 'hello world')
-   await page.click('#cb1', { clickCount: 1 }) 
+   await page.click('#cb2', { clickCount: 1 }) 
 
     await browser.close()
 
-  })*/
+  })
 
-  /*it('Test5: collapsing daily log view', async () => {
+  it('Test5: collapsing daily log view', async () => {
 
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5502/source/html/daily.html')
 
@@ -107,10 +116,10 @@ describe('testing daily log page', () => {
 
     await browser.close()
 
-  })*/ 
+  })
 
-  /*it('Test6: cancel adding a reflection', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+  it('Test6: cancel adding a reflection', async () => {
+    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null})
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5502/source/html/daily.html')
 
@@ -123,15 +132,15 @@ describe('testing daily log page', () => {
     await page.waitFor(2000)
 
     await page.type('#input-area', 'hello')
-    await page.click('#cb2', { clickCount: 1 })
+    await page.click('#cb1', { clickCount: 1 })
 
     await browser.close()
 
-  })*/
+  })
 
-  it('Test7: adding a note', async () => {
+  it('Test7: adding a note and canceling', async () => {
 
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500 })
+    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5502/source/html/daily.html')
 
@@ -144,7 +153,90 @@ describe('testing daily log page', () => {
     await page.waitFor(2000)
 
     await page.type('#input-area', 'hello world')
-    await page.click('#cb2', { clickCount: 1 }) 
+    await page.click('#cb1', { clickCount: 1 }) 
+
+    await browser.close()
+
+  })
+
+   it('Test8: adding a blank reflection', async () => {
+    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
+    const page = await browser.newPage()
+    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    
+    await page.evaluate(() => {
+      let input = document.querySelector('input[id="input1"]')
+      input.click() 
+   })
+
+     await page.waitFor(2000)
+
+     page.on('dialog', async dialog => {
+      await dialog.accept();
+  });
+
+     await page.waitFor(2000)
+
+     await page.click('#cb2', { clickCount: 1 }) 
+
+     await page.waitFor(2000)
+
+     await browser.close()
+
+  }) 
+
+  it('Test9: adding a blank note', async () => {
+    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
+    const page = await browser.newPage()
+    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    
+    await page.evaluate(() => {
+      let input = document.querySelector('input[id="input4"]')
+      input.click() 
+   })
+
+     await page.waitFor(2000)
+
+     page.on('dialog', async dialog => {
+      await dialog.accept();
+  });
+
+     await page.waitFor(2000)
+
+     await page.click('#cb2', { clickCount: 1 }) 
+
+     await page.waitFor(2000)
+
+     await browser.close()
+
+  })
+
+  it('Test10: adding a blank event', async () => {
+
+    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
+    const page = await browser.newPage()
+    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+
+
+   await page.evaluate(() => {
+    var test = document.querySelector('input[id="input2"]')
+     test.click();
+ })
+
+   await page.waitFor(2000)
+
+   await page.type('#time-input', '0120a')
+   await page.type('#date-input', '04082021')
+
+   await page.waitFor(2000)
+
+   page.on('dialog', async dialog => {
+    await dialog.accept();
+});
+   
+   await page.click('#cb2', { clickCount: 1 }) 
+
+    
 
     await browser.close()
 

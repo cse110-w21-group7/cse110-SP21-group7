@@ -17,7 +17,8 @@ h3 {
   vertical-align: center;
   font-size: 30px;
   border-style: none;
-  padding-top: 20px;;
+  padding-top:20px;
+  color:white;
 }
 
 .fa-2x {
@@ -37,7 +38,8 @@ font-size:20px;
 
 #myInput {
   font-size: 20px;
-  border: 5px solid lightcoral;
+  width:85%;
+  border: 5px solid white;
 }
 
 #main-menu:hover,
@@ -251,6 +253,8 @@ a:link {
   /* border-style: solid; */
   border-radius: 20px;
   margin-top: 30px;
+  margin-left:4vw;
+  margin-right:4vw;
   align-items: flex-start;
   /* border-color: blue; */
   display: none;
@@ -426,7 +430,7 @@ a:link {
   /* Style the "Add" button */
   .addBtn {
     background: #98c1d9;
-    width:10%;
+    width:15%;
     border-style:solid;
     border-color:white;
     font-family: "Montserrat", sans-serif;
@@ -443,7 +447,7 @@ a:link {
   }
   
   .addBtn:hover {
-    background-color: #e0fbfc;
+    background-color: #EE6C4D;
   }
   
   #myDIV {
@@ -458,20 +462,13 @@ a:link {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    flex-basis: 38vw;
+    flex-basis: 34vw;
     align-items: center;
     margin-top: 20px;
     box-shadow: 20px 20px 20px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   }
 
-  #image-collection > img {
-      border:5px dashed black;
-      width:400px;
-      margin: 10px;
-      margin-top:30px;
-      margin-bottom:0;
-  }
-  
+ 
   h2 {
     font-family: 'Montserrat', sans-serif;
     margin-top: 20px;
@@ -480,36 +477,24 @@ a:link {
     color: white;
 }
 
-  #video-collection{
-    border: 8px solid #3d5A80;
-    margin-top:20px;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-basis: 38vw;
-    align-items: center;
-    box-shadow: 20px 20px 20px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  }
-
-h2 {
-  font-family: Pattaya, sans-serif;
-  font-size: 50px;
-  margin: 0;
-}
-
-#video-collection {
-  border: 8px solid #e0fbfc;
-  margin-top: 20px;
-  background-color: white;
+#video-collection{
+  border: 8px solid #3d5A80;
+  margin-top:20px;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  flex-basis: 38vw;
+  flex-basis: 34vw;
   align-items: center;
-  width: 500px;
+  box-shadow: 20px 20px 20px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
+
+h2 {
+  font-family: 'Pattaya', sans-serif;
+  font-size: 50px;
+  margin-top: 30px;
+}
+
 
 #video-collection > video {
   border: 5px dashed black;

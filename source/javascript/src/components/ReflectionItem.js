@@ -1,5 +1,6 @@
 import { IndexedDBWrapper } from '../indexedDB/IndexedDBWrapper.js'
 import { DateConverter } from '../utils/DateConverter.js'
+import { Router, ROUTES } from '../utils/Router.js'
 
 /**
  * Component class for creating the reflection field
@@ -54,8 +55,7 @@ class ReflectionItem extends HTMLElement {
                                       background: url(../images/reflection-item_icons/happy-regular.svg) no-repeat center center;
                                     }
                                   #mood-slider {
-                                    margin-top: 100px;
-                                    font-size:40px;
+                                    font-size:3vw;
                                     display: flex;
                                     flex-direction: column;
                                     align-items: center;
@@ -63,23 +63,39 @@ class ReflectionItem extends HTMLElement {
                                   }
                                   #mood{
                                     margin:auto;
-                                    width: 75vw;
+                                    margin-top: 2vh;
+                                    margin-bottom: 3vh;
+                                    width: 70vw;
+                                  }
+                                  #mood:hover {
+                                    cursor: pointer;
                                   }
                                   label {
                                     font-family: 'Montserrat', sans-serif;
-                                    color: #e0fbfc;
+                                    color: white;
+                                    text-transform: uppercase;
+                                    font-weight: bold;
                                     margin-bottom: 30px;
                                   }
-                                  .icon {
+                                  .iconokay-icon {
                                     color: white;
-                                    margin-top: 20px;
+                                  }
+                                  h1{
+                                    font-family: "Montserrat", sans-serif;
+                                    margin-top: 15px;
+                                    font-size: 38px;
+                                    line-height:40px;
+                                    color: #e0fbfc;
                                   }
                                  </style> 
                                       
                                         <div id="mood-slider">
-                                            <label for="mood">Today, I'm feeling ${this.getMoodWord()}</label>
+                                            <h1>Today, I'm feeling</h1>
                                             <input type="range" id="mood" name="mood" value="${this._entry.value}" min="${this._MOOD_MIN}" max="${this._MOOD_MAX}">
                                             <i class="icon ${this.getFASymbolClass()}"></i>
+                                            <label for="mood">${this.getMoodWord()}</label>
+                                            
+                                            
                                         </div>
                                   `
     const that = this
@@ -94,10 +110,12 @@ class ReflectionItem extends HTMLElement {
         store.openCursor().onsuccess = function (event) {
           const cursor = event.target.result
           if (cursor) {
-            console.log(cursor.value)
             // current Log we are viewing
-            const currentLog = cursor.value.current_log
-            const dateConverter = new DateConverter(Number(currentLog))
+            const router = new Router()
+            const searchParams = router.url.searchParams
+
+            const timestamp = Number(searchParams.get('timestamp'))
+            const dateConverter = new DateConverter(timestamp)
             cursor.value.$defs['daily-logs'].forEach((log, index) => {
               // check if we indexed the correct daily log to change
               if (dateConverter.equals(Number(log.properties.date.time))) {
