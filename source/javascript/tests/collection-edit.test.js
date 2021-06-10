@@ -7,7 +7,7 @@ describe('testing collection edit page', () => {
     
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
+    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
 
     await page.type('#myInput', 'hello')
     await page.click('.addBtn', { clickCount: 1 })
@@ -19,7 +19,7 @@ describe('testing collection edit page', () => {
   it('Test2: adding multiple tasks', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
+    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
 
     await page.type('#myInput', 'hello')
     await page.$eval('.addBtn', (element) => {
@@ -42,7 +42,7 @@ describe('testing collection edit page', () => {
   it('Test3: expanding and collapsing collection edit view', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
+    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
 
     await page.$eval('#collapse', (element) => {
       element.click()
@@ -60,10 +60,9 @@ describe('testing collection edit page', () => {
   it('Test4: adding image to collection', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
+    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
 
     await page.click('#collapse', { clickCount: 1 })
-    //await page.waitForNavigation();
 
     await page.waitFor(5000)
 
@@ -76,7 +75,7 @@ describe('testing collection edit page', () => {
   it('Test5: adding video to collection', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
+    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
 
     await page.$eval('#collapse', (element) => {
       element.click()
@@ -91,7 +90,7 @@ describe('testing collection edit page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/collection-edit.html')
+    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
 
     await page.type('#myInput', '')
     await page.click('.addBtn', { clickCount: 1 })

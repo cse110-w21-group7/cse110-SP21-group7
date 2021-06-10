@@ -6,7 +6,7 @@ describe('testing daily log page', () => {
  it('Test1: adding a reflection', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    await page.goto('http://127.0.0.1:500/source/html/daily.html')
     
     await page.evaluate(() => {
       let input = document.querySelector('input[id="input1"]')
@@ -31,7 +31,7 @@ describe('testing daily log page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    await page.goto('http://127.0.0.1:5500/source/html/daily.html')
 
 
    await page.evaluate(() => {
@@ -59,7 +59,7 @@ describe('testing daily log page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    await page.goto('http://127.0.0.1:5500/source/html/daily.html')
 
 
    await page.evaluate(() => {
@@ -83,7 +83,7 @@ describe('testing daily log page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    await page.goto('http://127.0.0.1:5500/source/html/daily.html')
 
 
    await page.evaluate(() => {
@@ -104,7 +104,7 @@ describe('testing daily log page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    await page.goto('http://127.0.0.1:5500/source/html/daily.html')
 
     await page.click('#collapse', { clickCount: 1 })
 
@@ -121,7 +121,7 @@ describe('testing daily log page', () => {
   it('Test6: cancel adding a reflection', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null})
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    await page.goto('http://127.0.0.1:5500/source/html/daily.html')
 
 
     await page.evaluate(() => {
@@ -142,7 +142,7 @@ describe('testing daily log page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    await page.goto('http://127.0.0.1:5500/source/html/daily.html')
 
 
    await page.evaluate(() => {
@@ -162,7 +162,7 @@ describe('testing daily log page', () => {
    it('Test8: adding a blank reflection', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    await page.goto('http://127.0.0.1:5500/source/html/daily.html')
     
     await page.evaluate(() => {
       let input = document.querySelector('input[id="input1"]')
@@ -188,7 +188,7 @@ describe('testing daily log page', () => {
   it('Test9: adding a blank note', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    await page.goto('http://127.0.0.1:5500/source/html/daily.html')
     
     await page.evaluate(() => {
       let input = document.querySelector('input[id="input4"]')
@@ -215,7 +215,7 @@ describe('testing daily log page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/daily.html')
+    await page.goto('http://127.0.0.1:5500/source/html/daily.html')
 
 
    await page.evaluate(() => {

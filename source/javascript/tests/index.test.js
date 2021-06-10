@@ -5,7 +5,7 @@ describe('testing index page', () => {
   it('Test1: Clicking the add icon, new URL should contain daily.html', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/index.html')
+    await page.goto('http://127.0.0.1:5500/source/html/index.html')
 
     await page.click('#cb', {clickCount: 1 })
 
@@ -17,7 +17,7 @@ describe('testing index page', () => {
   it('Test2: redirects to the correct weekly log from index', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/index.html')
+    await page.goto('http://127.0.0.1:5500/source/html/index.html')
 
     const [response] = await Promise.all([
       page.$eval('#weeklyNav', el => el.click()),
@@ -25,7 +25,7 @@ describe('testing index page', () => {
     ]);
 
     const url = await page.url()
-    expect(url).to.be.include('127.0.0.1:5502/source/html/weekly.html')
+    expect(url).to.be.include('127.0.0.1:5500/source/html/weekly.html')
 
     await browser.close()
   })
@@ -33,7 +33,7 @@ describe('testing index page', () => {
   it('Test3: go to daily log using nav bar', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/index.html')
+    await page.goto('http://127.0.0.1:5500/source/html/index.html')
 
     const [response] = await Promise.all([
       page.$eval('#dailyNav', el => el.click()),
@@ -42,7 +42,7 @@ describe('testing index page', () => {
 
 
     const url4 = await page.url()
-    expect(url4).to.be.include('127.0.0.1:5502/source/html/daily.html')
+    expect(url4).to.be.include('127.0.0.1:5500/source/html/daily.html')
 
     await browser.close()
   })
@@ -51,7 +51,7 @@ describe('testing index page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/index.html')
+    await page.goto('http://127.0.0.1:5500/source/html/index.html')
 
 
     const [response] = await Promise.all([
@@ -60,7 +60,7 @@ describe('testing index page', () => {
     ]);
 
     const url3 = await page.url()
-    expect(url3).to.be.include('127.0.0.1:5502/source/html/collection.html')
+    expect(url3).to.be.include('127.0.0.1:5500/source/html/collection.html')
 
     await browser.close()
   })
@@ -69,7 +69,7 @@ describe('testing index page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/index.html')
+    await page.goto('http://127.0.0.1:5500/source/html/index.html')
 
 
     const [response] = await Promise.all([
@@ -78,7 +78,7 @@ describe('testing index page', () => {
     ]);
 
     const url4 = await page.url()
-    expect(url4).to.be.include('127.0.0.1:5502/source/html/weekly.html')
+    expect(url4).to.be.include('127.0.0.1:5500/source/html/weekly.html')
 
     await browser.close()
   })
@@ -87,7 +87,7 @@ describe('testing index page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/index.html') 
+    await page.goto('http://127.0.0.1:5500/source/html/index.html') 
 
     const [response] = await Promise.all([
       page.$eval('#weeklyNav', el => el.click()),
@@ -96,12 +96,12 @@ describe('testing index page', () => {
 
 
     const url4 = await page.url()
-    expect(url4).to.be.include('127.0.0.1:5502/source/html/weekly.html')
+    expect(url4).to.be.include('127.0.0.1:5500/source/html/weekly.html')
 
     await page.goBack()
 
     const url5 = await page.url()
-    expect(url5).to.be.include('127.0.0.1:5502/source/html/index.html')
+    expect(url5).to.be.include('127.0.0.1:5500/source/html/index.html')
 
     await browser.close()
   })
@@ -110,7 +110,7 @@ describe('testing index page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/index.html')
+    await page.goto('http://127.0.0.1:5500/source/html/index.html')
 
     const [response] = await Promise.all([
       page.$eval('#dailyNav', el => el.click()),
@@ -118,12 +118,12 @@ describe('testing index page', () => {
     ]);
 
     const url = await page.url()
-    expect(url).to.be.include('127.0.0.1:5502/source/html/daily.html')
+    expect(url).to.be.include('127.0.0.1:5500/source/html/daily.html')
 
     await page.goBack()
 
     const url2 = await page.url()
-    expect(url2).to.be.include('127.0.0.1:5502/source/html/index.html')
+    expect(url2).to.be.include('127.0.0.1:5500/source/html/index.html')
 
     await browser.close()
   }) 
@@ -132,7 +132,7 @@ describe('testing index page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/index.html')
+    await page.goto('http://127.0.0.1:5500/source/html/index.html')
 
     const [response] = await Promise.all([
       page.$eval('#searchNav', el => el.click()),
@@ -140,12 +140,12 @@ describe('testing index page', () => {
     ]);
 
     const url = await page.url()
-    expect(url).to.be.include('127.0.0.1:5502/source/html/search.html')
+    expect(url).to.be.include('127.0.0.1:5500/source/html/search.html')
 
     await page.goBack()
 
     const url2 = await page.url()
-    expect(url2).to.be.include('127.0.0.1:5502/source/html/index.html')
+    expect(url2).to.be.include('127.0.0.1:5500/source/html/index.html')
 
     await browser.close()
   })
@@ -154,7 +154,7 @@ describe('testing index page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/index.html')
+    await page.goto('http://127.0.0.1:5500/source/html/index.html')
 
     const [response] = await Promise.all([
       page.$eval('#collectionNav', el => el.click()),
@@ -162,12 +162,12 @@ describe('testing index page', () => {
     ]);
 
     const url = await page.url()
-    expect(url).to.be.include('127.0.0.1:5502/source/html/collection.html')
+    expect(url).to.be.include('127.0.0.1:5500/source/html/collection.html')
 
     await page.goBack()
 
     const url2 = await page.url()
-    expect(url2).to.be.include('127.0.0.1:5502/source/html/index.html')
+    expect(url2).to.be.include('127.0.0.1:5500/source/html/index.html')
 
     await browser.close()
   })
@@ -176,7 +176,7 @@ describe('testing index page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5502/source/html/index.html')
+    await page.goto('http://127.0.0.1:5500/source/html/index.html')
 
     const [response] = await Promise.all([
       page.$eval('#searchNav', el => el.click()),
@@ -184,7 +184,7 @@ describe('testing index page', () => {
     ]);
 
     const url = await page.url()
-    expect(url).to.be.include('127.0.0.1:5502/source/html/search.html')
+    expect(url).to.be.include('127.0.0.1:5500/source/html/search.html')
 
     await browser.close()
   })
