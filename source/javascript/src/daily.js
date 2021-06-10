@@ -10,50 +10,73 @@ const text = document.getElementById('input-area')
 const date = document.getElementById('date-input')
 const time = document.getElementById('time-input')
 const saveBtn = document.getElementById('cb2')
-const realCanBtn = document.getElementById('cancel')
 const cancelBtn = document.getElementById('cb1')
 const refRadio = document.getElementById('input1')
 const eventRadio = document.getElementById('input2')
 const taskRadio = document.getElementById('input3')
 const noteRadio = document.getElementById('input4')
 const radioContainer = document.getElementsByClassName('container')[0]
-const realSavBtn = document.getElementById('save')
 const tmButton = document.getElementById('tomorrow')
 const ytButton = document.getElementById('yesterday')
 const tagOptions = document.querySelector('.tag-options')
 
+/**
+ * Onclick of the cancel button will reset the input container.
+ */
 cancelBtn.addEventListener('click', () => {
-  // TODO: implement hide functionality
-  text.value = ''
+  resetEverything()
 })
 
+/**
+ * Onclick of the "Entry type" box; checks which entry
+ * type was checked and updates the input container accordingly.
+ */
 radioContainer.addEventListener('change', () => {
   resetEverything()
-  if (refRadio.checked) {
-    text.style.visibility = 'visible'
-    saveBtn.style.display = 'inline-block'
-    cancelBtn.style.display = 'inline-block'
+  if (refRadio.checked || noteRadio.checked) {
+    showTextInput()
   } else if (eventRadio.checked) {
-    time.style.display = 'inline-block'
     time.style.visibility = 'visible'
+    time.style.display = 'inline-block'
   } else if (taskRadio.checked) {
     date.style.visibility = 'visible'
     time.style.display = 'none'
-    // we need to remove the eventListener afterwards
-  } else if (noteRadio.checked) {
-    text.style.visibility = 'visible'
-    saveBtn.style.display = 'inline-block'
-    cancelBtn.style.display = 'inline-block'
   }
+  setPlaceholder()
 })
 
+/**
+ * Sets placeholder of text input depending on which entry type if selected.
+ */
+function setPlaceholder () {
+  let placeholder
+  if (refRadio.checked) {
+    placeholder = 'Input your reflection here'
+  } else if (eventRadio.checked) {
+    placeholder = 'Input your event here'
+  } else if (taskRadio.checked) {
+    placeholder = 'Input your task here'
+  } else {
+    placeholder = 'Input your note here'
+  }
+  text.setAttribute('placeholder', placeholder)
+}
+
+/**
+ * Onclick of the "Add tag" button will trigger this event and add
+ * the collection tag to the daily log
+ */
 tagOptions.addEventListener('click', (event) => {
   const collectionName = event.target.textContent
-  console.log('clicked!')
   document.querySelector('.tags').append(new Tag(collectionName))
   addCollectionTag(collectionName)
 })
 
+/**
+ * Adds a collection tag to the user's daily log
+ * @param {String} collectionName Collection that will be added as a
+ * tag to the daily log
+ */
 function addCollectionTag (collectionName) {
   wrapper.transaction((event) => {
     const db = event.target.result
@@ -91,10 +114,9 @@ function addCollectionTag (collectionName) {
 }
 
 /**
- * Adds tasks, notes, and events to the daily log. If the entry is empty,
- * then the bullet journal alerts the user that they must write something
- * for that task/note/event.
- *
+ * Adds tasks, notes, events, and reflections to the daily log. If the entry is
+ * empty, then the bullet journal alerts the user that they must write
+ * something for that entry
  */
 function newElement () {
   const inputValue = document.getElementById('input-area').value
@@ -123,14 +145,12 @@ function newElement () {
     const hours = Number(time.value.substring(0, 2))
     // parse the number of minutes
     const minutes = Number(time.value.substring(3))
-    // update UNIX timestamp with hours and minutes
+    // update UNIX timestamp with hours and minutes (GMT time)
     const timestamp = Date.parse(date.value) +
                 (hours * 60 * 60 * 1000) +
-                (minutes * 60 * 1000)
-    const dateConverter = new DateConverter(timestamp)
-
-    // @TODO
-    itemEntry.time = dateConverter.timestamp
+                (minutes * 60 * 1000) +
+                (new Date().getTimezoneOffset() * 60 * 1000)
+    itemEntry.time = timestamp
   } else {
     itemEntry.logType = 'reflection'
     entry = 'reflection'
@@ -158,13 +178,13 @@ function resetEverything () {
 }
 
 /**
- * Updates tasks, notes, and events in the daily log.
- * (i.e. deleting entries, editing entries, or toggling tasks)
+ * Adds tasks, notes, and events in the daily log.
  * These changes should be saved and reflected the next time
  * the user opens the daily log.
- *
- * @param logEntry
- * @param entry
+ * @param {Object} logEntry Log entry and associated description
+ * to be added to the schema
+ * @param {String} entry Category that logEntry should go under
+ * for the schema (notes/tasks/events/reflection)
  */
 function updateElement (logEntry, entry) {
   const wrapper = new IndexedDBWrapper('experimentalDB', 1)
@@ -205,13 +225,15 @@ function updateElement (logEntry, entry) {
  * a new daily log is created if the date is the present day.
  * @author Noah Teshima <nteshima@ucsd.edu>
  * @author Brett Herbst <bherbst@ucsd.edu>
+ * @param {String} quote String reference containing resulting quote from
+ * ReST API call. We use this quote for new daily log entries
  * @throws Error object if date reference is null, undefined. Otherwise,
  * an error is thrown if
  * to retrieve log info for given day. the given date is not the present day and failed
  * @returns JSON type response, containing the information needed to
  * initialize the daily log.
  */
-function getLogInfoAsJSON (cb) {
+function getLogInfoAsJSON (cb, quote) {
   const wrapper = new IndexedDBWrapper('experimentalDB', 1)
 
   wrapper.transaction((event) => {
@@ -219,7 +241,7 @@ function getLogInfoAsJSON (cb) {
 
     const store = db.transaction(['currentLogStore'], 'readwrite')
       .objectStore('currentLogStore')
-    store.openCursor().onsuccess = function (event) {
+    store.openCursor().onsuccess = async function (event) {
       const cursor = event.target.result
       if (cursor) {
         const router = new Router()
@@ -227,16 +249,14 @@ function getLogInfoAsJSON (cb) {
         if (searchParams.has('timestamp')) {
           const timestamp = Number(searchParams.get('timestamp'))
           const dateConverter = new DateConverter(timestamp)
-          // console.log(cursor.value)
+
           let match = false
-          let lenArr = 0
           cursor.value.$defs['daily-logs'].forEach((log, index) => {
             if (dateConverter.equals(Number(log.properties.date.time))) {
               match = true
               cb.bind(this)
               cb(cursor.value.$defs['daily-logs'][index], cursor.value)
             }
-            lenArr = index
           })
           // if there is no match for the given day, we create a daily log
           if (!match) {
@@ -253,7 +273,10 @@ function getLogInfoAsJSON (cb) {
                 events: [],
                 tasks: [],
                 notes: [],
-                reflection: [],
+                reflection: [{
+                  description: quote,
+                  logType: 'reflection'
+                }],
                 mood: {
                   type: 'number',
                   multipleOf: 1,
@@ -265,9 +288,9 @@ function getLogInfoAsJSON (cb) {
               }
             }
             cursor.value.$defs['daily-logs'].push(appendObj)
-            cb.bind(this)
-            cb(cursor.value.$defs['daily-logs'][lenArr + 1], cursor.value)
             cursor.update(cursor.value)
+            cb.bind(this)
+            cb(appendObj, cursor.value)
           }
         }
       }
@@ -298,11 +321,11 @@ function setEntries (log) {
     })
   }
 
-  /* make tasks */
+  // Populate entries in daily log
+  populateTypeOfEntry(log.properties.reflection)
+  populateTypeOfEntry(log.properties.events)
   populateTypeOfEntry(log.properties.tasks)
   populateTypeOfEntry(log.properties.notes)
-  populateTypeOfEntry(log.properties.events)
-  populateTypeOfEntry(log.properties.reflection)
 }
 
 /**
@@ -312,7 +335,6 @@ function setEntries (log) {
  * @param {Object} log JSON object formatted based on the schema for
  * a single daily log
  */
-
 function setReflection (log) {
   const reflection = log.properties.mood
   const reflectionItem = document.querySelector('reflection-item')
@@ -334,6 +356,10 @@ function setDate (log) {
   dateElement.innerText = date.toLocaleDateString()
 }
 
+/**
+ * Business logic subroutine for adding collection tags to the daily log.
+ * @param {Object} json JSON object for the collection tag
+ */
 function setTags (json) {
   const collections = json.properties.collections
   const router = new Router()
@@ -354,6 +380,12 @@ function setTags (json) {
   })
 }
 
+/**
+ * Business logic subroutine for adding the collection tag options
+ * for the "Add tag" button. Only give collection options that are
+ * not already tagged for the daily log.
+ * @param {Object} json JSON object for the add collection tag options
+ */
 function setTagOptions (json) {
   const collections = json.properties.collections
   const router = new Router()
@@ -388,10 +420,6 @@ function setTagOptions (json) {
  * @param json Head of the JSON stored in database
  */
 function populateDailyLog (response, json) {
-  /* TODO: replace response with schema for single daily log
-  (see https://github.com/cse110-w21-group7/cse110-SP21-group7/issues/161
-    and https://github.com/cse110-w21-group7/cse110-SP21-group7/issues/162)
-  */
   if (response) {
     setDate(response)
     setEntries(response)
@@ -436,16 +464,35 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   })
   date.addEventListener('change', () => {
-    text.style.visibility = 'visible'
-    saveBtn.style.display = 'inline-block'
-    cancelBtn.style.display = 'inline-block'
+    showTextInput()
   })
   time.addEventListener('change', () => {
     date.style.visibility = 'visible'
   })
-  getLogInfoAsJSON(populateDailyLog)
+
+  fetch('https://api.quotable.io/random')
+    .then((result) => result.json())
+    .then((jsonResult) => {
+      return `${jsonResult.content} —${jsonResult.author}`
+    })
+    .then((quote) => {
+      getLogInfoAsJSON(populateDailyLog, quote)
+    })
 })
 
+/**
+ * Helper method that shows text input field and "Save" and "Cancel" buttons
+ */
+function showTextInput () {
+  text.style.visibility = 'visible'
+  saveBtn.style.display = 'inline-block'
+  cancelBtn.style.display = 'inline-block'
+}
+
+/**
+ * Routes the user from the current daily log they are on
+ * to yesterday's daily log
+ */
 const yesterdayTodayNav = (yesterday = true) => {
   const router = new Router()
   const searchParams = router.url.searchParams

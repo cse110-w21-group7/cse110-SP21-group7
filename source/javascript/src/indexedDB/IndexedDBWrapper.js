@@ -96,14 +96,14 @@ class IndexedDBWrapper {
   }
 
   /**
-   * Default event handler for onsuccess callback
-   * for IDBOpenDBRequest objects.
-   * @param {Event} event Event object containing the
-   * result of our callback. Using event.target.result yields
-   * an IDBRequest object for transactions.
-   * @param {Boolean} synthetic Determines whether we use a mock
-   * response to populate our daily log. Solely for testing purposes.
-   */
+     * Default event handler for onsuccess callback
+     * for IDBOpenDBRequest objects.
+     * @param {Event} event Event object containing the
+     * result of our callback. Using event.target.result yields
+     * an IDBRequest object for transactions.
+     * @param {Boolean} synthetic Determines whether we use a mock
+     * response to populate our daily log. Solely for testing purposes.
+     */
   addNewLog (event, synthetic = false) {
     const db = event.target.result
   }
@@ -123,11 +123,11 @@ class IndexedDBWrapper {
      * @param {Boolean} synthetic Determines whether we use a mock
      * response to populate our daily log. Solely for testing purposes.
      */
-  transaction (successCb = (event) => {}, upgradeCb = this.init, synthetic = true) {
+  transaction (successCb = (event) => {}, upgradeCb = this.init, synthetic = false) {
     const request = window.indexedDB.open(this._dbName, this._version)
     const that = this
     request.onupgradeneeded = function (event) {
-      upgradeCb(event, synthetic ? '/source/models/mock_data.json' : '/source/models/schema_empty.json')
+      upgradeCb(event, synthetic ? './models/mock_data.json' : './models/schema_empty.json')
     }
     request.onsuccess = function (event) {
       successCb(event)

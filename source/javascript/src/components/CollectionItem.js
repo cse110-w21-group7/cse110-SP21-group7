@@ -10,9 +10,9 @@ const wrapper = new IndexedDBWrapper('experimentalDB', 1)
  */
 class CollectionItem extends HTMLElement {
   /**
-       * Constructor containing the business logic for
-       * creating a new container item.
-       */
+     * Constructor containing the business logic for
+     * creating a new container item.
+     */
   constructor () {
     super()
 
@@ -25,11 +25,10 @@ class CollectionItem extends HTMLElement {
 
   render () {
     this.shadowRoot.innerHTML = `<style>
-                                      @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
                                       .icon-collection {
                                           background-size: contain;
-                                          width:50%;
-                                          height:50%;
+                                          width:40%;
+                                          height:40%;
                                           margin:auto;
                                       }
                                       img {
@@ -48,7 +47,7 @@ class CollectionItem extends HTMLElement {
                                         transform: scale(1.2);
                                       }
                                       .trash-button-icon {
-                                        background: url(../images/log-item_icons/trash-solid.svg) no-repeat center center;
+                                        background: url(./images/log-item_icons/trash-solid.svg) no-repeat center center;
                                       }
                                       .folder {
                                         margin-right: 1vw;
@@ -58,7 +57,6 @@ class CollectionItem extends HTMLElement {
                                         display:flex;
                                         flex-direction: column;
                                         align-items: flex-start;
-                                        /*TODO: change the width*/
                                         justify-content: center;
                                         width:400px;
                                         color: #e0fbfc;
@@ -88,16 +86,16 @@ class CollectionItem extends HTMLElement {
                                       </style>
                                     <div class="folder">
                                         <span class="icon-trash trash-button-icon"></span>
-                                        <img src="/source/images/icon-collection.svg" class="icon-collection">
+                                        <img src="./images/icon-collection.svg" class="icon-collection">
                                         <h1>${this.getCollectionName()}</h1>
                                     </div>`
     this.setClickListeners()
     this.setHoverListeners()
   }
 
-  /*
-   * Adds event listeners for all click events on the collection item
-   */
+  /**
+     * Adds event listeners for all click events on the collection item
+     */
   setClickListeners () {
     this.shadowRoot.querySelector('span[class="icon-trash trash-button-icon"]').addEventListener('click', (event) => {
       // Get clicked collection-item
@@ -161,14 +159,17 @@ class CollectionItem extends HTMLElement {
        * Insert text input for in-place editing
        */
       const form = document.createElement('form')
-      form.style.margin = 'auto'
 
       const textInput = document.createElement('input')
       textInput.setAttribute('type', 'text')
       textInput.style.height = '40px'
+      textInput.style.fontStyle = 'italic'
+      textInput.style.width = '392.5px'
+      textInput.style.marginTop = '20px'
+      textInput.style.color = 'white'
       textInput.style.fontSize = '32px'
       textInput.style.fontWeight = 'bold'
-      textInput.style.fontFamily = '"Pattaya", sans-serif'
+      textInput.style.fontFamily = '"Montserrat", sans-serif'
       textInput.style.textAlign = 'center'
       textInput.style.background = 'transparent'
       textInput.value = name.textContent
@@ -188,9 +189,6 @@ class CollectionItem extends HTMLElement {
 
       // when user presses enter, update collection name
       form.addEventListener('change', (event) => {
-        // FIXME: a small bug here, if user doesn't hit enter, the name won't get updated
-        // and that's because we are using the submit, maybe we should have a check mark or save button
-        // which makes the name changing process more explicit
         event.preventDefault()
         const collectionName = textInput.value
         collection.entry = { name: collectionName }
@@ -198,9 +196,9 @@ class CollectionItem extends HTMLElement {
     })
   }
 
-  /*
-   * Adds event listeners for all hover events on the collection item
-   */
+  /**
+     * Adds event listeners for all hover events on the collection item
+     */
   setHoverListeners () {
     const trashIcon = this.shadowRoot.querySelector('.icon-trash')
     const border = this.shadowRoot.querySelector('div')
@@ -226,11 +224,11 @@ class CollectionItem extends HTMLElement {
   }
 
   /**
-       * Setter for private field entry, containing
-       * the name of our collection.
-       * @param {Object} entry JSON object containing the
-       * new fields for our log item.
-       */
+     * Setter for private field entry, containing
+     * the name of our collection.
+     * @param {Object} entry JSON object containing the
+     * new fields for our log item.
+     */
   set entry (entry) {
     updateCollectionName(this._entry.name, entry.name)
     this._entry = entry
@@ -238,22 +236,22 @@ class CollectionItem extends HTMLElement {
   }
 
   /**
-       * Getter for private field entry, containing the
-       * name of our collection.
-       * @return {Object} JSON object containing the
-       * new fields for our collection item.
-       */
+     * Getter for private field entry, containing the
+     * name of our collection.
+     * @return {Object} JSON object containing the
+     * new fields for our collection item.
+     */
   get entry () {
     return this._entry
   }
 }
 
 /**
- * Update given collection to have given name.
- * @author William Chung <wchung@ucsd.edu>
- * @param prevName Name of the collection to be udpated.
- * @param newName New name of the collection.
- */
+   * Update given collection to have given name.
+   * @author William Chung <wchung@ucsd.edu>
+   * @param prevName Name of the collection to be udpated.
+   * @param newName New name of the collection.
+   */
 function updateCollectionName (prevName, newName) {
   wrapper.transaction((event) => {
     const db = event.target.result

@@ -24,14 +24,12 @@ const sunday = document.getElementById('Sunday')
  * initialize the daily log.
  */
 function getLogInfoAsJSON (cb) {
-  // Do we need to open a new db?
   const wrapper = new IndexedDBWrapper('experimentalDB', 1)
 
   wrapper.transaction((event) => {
     const db = event.target.result
     const transaction = db.transaction(['currentLogStore'], 'readonly') // mode should be readonly
     const store = transaction.objectStore('currentLogStore')
-    // this gets all entries and store them as an array, pass in a key, what's the key?
     const getReq = store.getAll()
 
     getReq.onsuccess = (event) => {
@@ -56,7 +54,7 @@ function getLogInfoAsJSON (cb) {
         if (searchParams.has('displayFirstOfMonth')) {
           // gets all daily logs with the requested month and year
           result = dailyLogs.filter((log) => {
-            // timestamp of milliseconds since Jan 1. 1970 in local time
+            // timestamp of milliseconds since Jan 1. 1970 in GMT time
             const timestamp = Number(log.properties.date.time)
             const date = new Date(timestamp)
             return (date.getFullYear() === year) && (date.getMonth() === month)
@@ -73,8 +71,7 @@ function getLogInfoAsJSON (cb) {
             return dateToCompare.oldTimestampInSameWeek(Number(timestamp))
           })
         } else {
-          // @TODO get results for navigating from menu
-          dateToCompare = new DateConverter(Date.now())
+          dateToCompare = new DateConverter()
           dailyLogResult = dailyLogs.filter((log) => {
             const timestamp = log.properties.date.time
             return dateToCompare.timestampsInSameWeek(Number(timestamp))
@@ -101,6 +98,14 @@ function populateWeeklyView (weeklyItems, dateToCompare) {
   populateDayColumns(weeklyItems, dateToCompare)
 }
 
+/**
+ * Business logic routine used to populate the entries of each day for that week
+ * on the weekly page.
+ * @param {Object[]} weeklyItems JSON object array containing all the daily logs that
+ * should be populated on the weekly view.
+ * @param {DateConverter} dateToCompare DateConverter reference containing the date
+ * with respect to which we will show the weekly view.
+ */
 function populateDayColumns (weeklyItems, dateToCompare) {
   const week = document.getElementById('weekly-div')
   // create a DateConverter object
@@ -115,7 +120,6 @@ function populateDayColumns (weeklyItems, dateToCompare) {
     const weeklyItem = document.createElement('weekly-view-item')
     weeklyItem.entry = entry
     const childDiv = week.children[index]
-    // console.log(week.children[index])
     // business logic for appending the navigation link to each column
     appendNavLinks(childDiv, currentDate)
     childDiv.appendChild(weeklyItem)
@@ -127,10 +131,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 })
 
 /**
- * @author Katherine Baker <klbaker@ucsd.edu>, and Yuzi Lyu <>, Noah Teshima <nteshima@ucsd.edu>
+ * @author Katherine Baker <klbaker@ucsd.edu>
+ * @author Yuzi Lyu <yul134@ucsd.edu>
+ * @author Noah Teshima <nteshima@ucsd.edu>
  * @param {HTMLElement} targetElement div element that is a direct
- * child of the div with identifier #weekly-div. From this element, we
- * are able to
+ * child of the div with identifier #weekly-div.
  * @param {Date} date Date reference containing the date to append to
  * the header for the current column on the monthly/weekly view.
  */
@@ -139,7 +144,7 @@ function appendNavLinks (targetElement, date) {
   anchor.onclick = function (event) {
     event.preventDefault()
     const params = new URLSearchParams()
-    params.append('timestamp', date.timestamp)
+    params.append('timestamp', date.getTime())
     const url = new URL(ROUTES.daily, location.origin)
     url.search = params
     new Router(url).navigate()

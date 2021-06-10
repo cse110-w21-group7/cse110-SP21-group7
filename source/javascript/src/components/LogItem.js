@@ -26,6 +26,10 @@ class LogItem extends HTMLElement {
 
   render () {
     this.shadowRoot.innerHTML = `<style>
+                                    span {
+                                      overflow-wrap:anywhere;
+                                    }
+
                                     .icon {
                                         background-size: contain;
                                         display:inline-block;
@@ -37,22 +41,22 @@ class LogItem extends HTMLElement {
                                       cursor: pointer;
                                     }
                                     .trash-button-icon {
-                                        background: url(../images/log-item_icons/trash-solid.svg) no-repeat center center;
+                                        background: url(./images/log-item_icons/trash-solid.svg) no-repeat center center;
                                     }
                                     .task-unfinished-icon {
-                                        background: url(../images/log-item_icons/times-solid.svg) no-repeat center center;
+                                        background: url(./images/log-item_icons/times-solid.svg) no-repeat center center;
                                     }
                                     .task-finished-icon {
-                                        background: url(../images/log-item_icons/check-solid.svg) no-repeat center center;
+                                        background: url(./images/log-item_icons/check-solid.svg) no-repeat center center;
                                     }
                                     .note-icon {
-                                        background: url(../images/log-item_icons/note-solid.svg) no-repeat center center;
+                                        background: url(./images/log-item_icons/note-solid.svg) no-repeat center center;
                                     }
                                     .event-icon {
-                                        background: url(../images/log-item_icons/event-solid.svg) no-repeat center center;
+                                        background: url(./images/log-item_icons/event-solid.svg) no-repeat center center;
                                     }
                                     .reflection-icon {
-                                        background: url(../images/log-item_icons/reflection-solid.svg) no-repeat center center;
+                                        background: url(./images/log-item_icons/reflection-solid.svg) no-repeat center center;
                                     }
                                     button {
                                         background-color: rgba(0,0,0,0);
@@ -74,7 +78,7 @@ class LogItem extends HTMLElement {
                                     </style>
                                     <span id="single-entry">
                                         <i class="icon ${this.getFASymbolClass()}"></i>
-                                        <b>${this.getMilitaryTime()}</b>
+                                        <b>${this.getFormattedTime()}</b>
                                         <span id="tasks">${this._itemEntry.description}</span>
                                         <button type="button">
                                         <span class="icon trash-button-icon"></span>
@@ -91,6 +95,7 @@ class LogItem extends HTMLElement {
     const that = this
     if (!editable) {
       this.shadowRoot.querySelector('button').style.display = 'none'
+      // this.shadowRoot.querySelector('i').removeEventListener('click')
     } else {
       // When dealing with log of type task, we must update the task status when it is clicked.
       that.setHoverListeners()
@@ -205,7 +210,6 @@ class LogItem extends HTMLElement {
                   })
                   break
                 case ROUTES.weekly:
-                  // @TODO
                   break
                 case ROUTES['collection-edit']:
                   // find the collection with the same name
@@ -224,17 +228,15 @@ class LogItem extends HTMLElement {
             }
           }
         })
-        // call transaction, with one argument that is a callback function
-        // callback function should have a parameter event
 
         this.parentElement.remove()
       })
     }
   }
 
-  /*
-  * Adds event listeners for all hover events on the collection item
-  */
+  /**
+     * Adds event listeners for all hover events on the collection item
+     */
   setHoverListeners () {
     const singleEntry = this.shadowRoot.getElementById('single-entry')
     const trashBtn = this.shadowRoot.querySelector('button')
@@ -262,27 +264,27 @@ class LogItem extends HTMLElement {
     this._itemEntry = entry
     this._itemEntry.editable = true
     if (entry.logType === 'event') {
-      this._itemEntry.date = new Date(Number(entry.time))
+      this._itemEntry.date = new DateConverter(Number(entry.time))
     }
     this.render()
   }
 
   /**
-   * Getter for field page, which denotes the
-   * page in which the task is being created
-   * @returns {Number} Number corresponding to
-   * the key/value mappings from PAGES
-   */
+     * Getter for field page, which denotes the
+     * page in which the task is being created
+     * @returns {Number} Number corresponding to
+     * the key/value mappings from PAGES
+     */
   get page () {
     return this._page
   }
 
   /**
-   * Setter for field page, which denotes the
-   * page in which the task is being created
-   * @param {Number} page corresponding to
-   * the key/value mappings from PAGES
-   */
+     * Setter for field page, which denotes the
+     * page in which the task is being created
+     * @param {Number} page corresponding to
+     * the key/value mappings from PAGES
+     */
   set page (page) {
     this._page = page
   }
@@ -308,6 +310,26 @@ class LogItem extends HTMLElement {
     }
 
     return `${this._itemEntry.date.getHours()}:${this._itemEntry.date.getMinutes()}`
+  }
+
+  /**
+     * Gets the formatted time of the corresponding event. This method
+     * formats time as HH:MM[AM,PM], where AM is displayed if the hour is
+     * on the interval [0, 11]. Otherwise, PM is displayed.
+     */
+  getFormattedTime () {
+    if (this._itemEntry.logType !== 'event') {
+      return ''
+    }
+    const hours = this._itemEntry.date.getHours()
+    const minutes = this._itemEntry.date.getMinutes()
+    // Hours on the interval [0, 12)
+    const hoursModded = hours % 12
+    const AMPM = hours < 12 ? 'AM' : 'PM'
+    const hoursFormatted = hoursModded === 0 ? 12 : hoursModded
+    const minutesFormatted = minutes < 10 ? `0${minutes}` : `${minutes}`
+
+    return `${hoursFormatted}:${minutesFormatted}${AMPM}`
   }
 
   /**
