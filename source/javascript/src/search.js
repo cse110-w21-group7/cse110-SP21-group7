@@ -2,6 +2,7 @@
 import { IndexedDBWrapper } from './indexedDB/IndexedDBWrapper.js'
 
 const searchResults = document.getElementById('search-results')
+const resultsHeader = document.querySelector('#result-container > h2')
 
 /**
  * Subroutine used to surface the correct
@@ -36,12 +37,13 @@ function getLogInfoAsJSON (pattern, searchBy) {
           findAllMatches: false,
           minMatchCharLength: 1,
           location: 0,
-          threshold: 0.6,
+          threshold: 0.4,
           distance: 10,
           useExtendedSearch: false,
-          ignoreLocation: false,
+          ignoreLocation: true,
           ignoreFieldNorm: false
         }
+        let numberEntries = 0
         if (searchBy === 'daily-logs') {
           /**
            * 1. For each daily log:
@@ -72,7 +74,9 @@ function getLogInfoAsJSON (pattern, searchBy) {
               }
               li.appendChild(searchItem)
               searchResults.appendChild(li)
+              numberEntries++
             }
+            console.log()
           })
         } else {
           options.keys = ['description']
@@ -89,9 +93,11 @@ function getLogInfoAsJSON (pattern, searchBy) {
               }
               li.appendChild(searchItem)
               searchResults.appendChild(li)
+              numberEntries++
             }
           })
         }
+        resultsHeader.textContent = `Search results: ${numberEntries} entries found`
       }
     }
   })

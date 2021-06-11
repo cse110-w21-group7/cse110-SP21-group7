@@ -3,21 +3,19 @@ import { DateConverter } from '../utils/DateConverter.js'
 
 /**
  * Component class for individual columns for daily log information on 'weekly.html'
- * @author Yuzi Lyu <yul134@ucsd.edu>, Noah Teshima <nteshima@ucsd.edu>
+ * @author Yuzi Lyu <yul134@ucsd.edu>
+ * @author Noah Teshima <nteshima@ucsd.edu>
  */
 class WeeklyViewItem extends HTMLElement {
   /**
-       * Constructor containing the business logic for
-       * creating a new container item.
-       */
+     * Constructor containing the business logic for
+     * creating a new container item.
+     */
   constructor () {
     super()
 
     this.attachShadow({ mode: 'open' })
-    // Unfortunately this cannot be made a private field, since ESLint does not properly
-    // lint private fields.
     this._entry = { name: '' }
-    // this.render()
   }
 
   render () {
@@ -73,46 +71,29 @@ background: linear-gradient(335deg, rgba(247,240,63,1) 0%, rgba(254,255,156,1) 1
     const weekdayCol = this.shadowRoot.getElementById('single-weekday')
 
     const tasks = this._entry.properties.tasks
-    // console.log(tasks);
     const notes = this._entry.properties.notes
-    // console.log(notes);
     const events = this._entry.properties.events
-    // console.log(events);
     const reflection = this._entry.properties.reflection
-    // console.log(reflection);
 
-    reflection.forEach((reflection, index) => {
-      const reflectionItem = this.getEntryToWeeklyView(reflection)
-      const row = this.makeRow(reflectionItem)
-      reflectionItem.shadowRoot.querySelector('button').style.display = 'none'
-      // li.appendChild(reflectionItem)
-      weekdayCol.appendChild(row)
-    })
-    events.forEach((event, index) => {
-      const eventItem = this.getEntryToWeeklyView(event)
-      eventItem.shadowRoot.querySelector('button').style.display = 'none'
-      // li.appendChild(eventItem)
-      const row = this.makeRow(eventItem)
-      weekdayCol.appendChild(row)
-    })
-    tasks.forEach((task, index) => {
-      const taskItem = this.getEntryToWeeklyView(task)
-      taskItem.shadowRoot.querySelector('button').style.display = 'none'
-      const row = this.makeRow(taskItem)
-      weekdayCol.appendChild(row)
-    })
-    notes.forEach((notes, index) => {
-      const noteItem = this.getEntryToWeeklyView(notes)
-      noteItem.shadowRoot.querySelector('button').style.display = 'none'
-      const row = this.makeRow(noteItem)
-      weekdayCol.appendChild(row)
-    })
+    const populateItems = (items) => {
+      items.forEach((item, index) => {
+        const journalItem = this.getEntryToWeeklyView(item)
+        const row = this.makeRow(journalItem)
+        journalItem.shadowRoot.querySelector('button').style.display = 'none'
+        weekdayCol.appendChild(row)
+      })
+    }
+
+    populateItems(reflection)
+    populateItems(events)
+    populateItems(tasks)
+    populateItems(notes)
   }
 
   /**
-   * subroutine for creating one row of logItem
-   * @returns {p} The row that should be appended to the div
-   */
+     * Subroutine for creating one row of logItem
+     * @returns {p} The row that should be appended to the div
+     */
   makeRow (singleLog) {
     const row = document.createElement('p')
     row.setAttribute('class', 'weekday-entries')
@@ -121,11 +102,11 @@ background: linear-gradient(335deg, rgba(247,240,63,1) 0%, rgba(254,255,156,1) 1
   }
 
   /**
-   * Getter for getting the date correpsonding to the given
-   * weekly view item
-   * @returns {String} The date corresponding to the weekly view
-   * item being displayed, corresponding to
-   */
+     * Getter for getting the date correpsonding to the given
+     * weekly view item
+     * @returns {String} The date corresponding to the weekly view
+     * item being displayed, corresponding to
+     */
   getDate () {
     const timestamp = this._entry.date.time
     const dateConverter = new DateConverter(timestamp)
@@ -133,36 +114,37 @@ background: linear-gradient(335deg, rgba(247,240,63,1) 0%, rgba(254,255,156,1) 1
   }
 
   /**
-   * Subroutine to add a task/note/event to the weekly view.
-   * @param {Object} entry JSON object containing the task/note/event
-   * data to add to the weekly view item.
-   * @returns {LogItem} LogItem object containing the representation of
-   * the given entry as a log item in the weekly view.
-   */
+     * Subroutine to add a task/note/event to the weekly view.
+     * @param {Object} entry JSON object containing the task/note/event
+     * data to add to the weekly view item.
+     * @returns {LogItem} LogItem object containing the representation of
+     * the given entry as a log item in the weekly view.
+     */
   getEntryToWeeklyView (entry) {
     const logItem = document.createElement('log-item')
-    logItem.itemEntry = entry // this is not working
+    logItem.itemEntry = entry
+    logItem.dataset.timestamp = this._entry.properties.date.time
     logItem.itemEntry.editable = false
     return logItem
   }
 
   /**
-       * Setter for private field entry, containing
-       * the name of our collection.
-       * @param {Object} entry JSON object containing the
-       * new fields for our log item.
-       */
+     * Setter for private field entry, containing
+     * the name of our collection.
+     * @param {Object} entry JSON object containing the
+     * new fields for our log item.
+     */
   set entry (entry) {
     this._entry = entry
     this.render()
   }
 
   /**
-       * Getter for private field entry, containing the
-       * name of our collection.
-       * @return {Object} JSON object containing the
-       * new fields for our collection item.
-       */
+     * Getter for private field entry, containing the
+     * name of our collection.
+     * @return {Object} JSON object containing the
+     * new fields for our collection item.
+     */
   get entry () {
     return this._entry
   }
