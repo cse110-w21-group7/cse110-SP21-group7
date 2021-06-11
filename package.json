@@ -4,7 +4,9 @@
   "description": "RIVER Bullet Journal; CSE110 Spring 2021",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive --require @babel/register ./source/javascript/tests/.",
+    "test": "npm run test_unit && npm run test_e2e",
+    "test_e2e": "mocha --timeout 100000 --recursive ./source/javascript/tests/e2e/.",
+    "test_unit": "mocha --recursive --require @babel/register ./source/javascript/tests/unit_tests/.",
     "coverage": "nyc npm run test",
     "lint_tests": "./node_modules/.bin/eslint source/javascript/tests/.",
     "fix_tests": "./node_modules/.bin/eslint source/javascript/tests/. --fix",
@@ -86,6 +88,7 @@
     "mocha": "^8.4.0",
     "npm": "^7.12.0",
     "nyc": "^15.1.0",
+    "puppeteer": "^10.0.0",
     "sinon": "^10.0.0"
   },
   "dependencies": {
