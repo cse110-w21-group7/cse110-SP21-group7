@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer')
 const expect = require('chai').expect
 
 describe('testing index page', () => {
-  it('Test1: Clicking the add icon, new URL should contain daily.html', async () => {
+  it('Clicking the add icon, new URL should contain daily.html', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5500/source/html/index.html')
@@ -14,7 +14,7 @@ describe('testing index page', () => {
     await browser.close()
   })
 
-  it('Test2: redirects to the correct weekly log from index', async () => {
+  it('redirects to the correct weekly log from index', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5500/source/html/index.html')
@@ -30,7 +30,7 @@ describe('testing index page', () => {
     await browser.close()
   })
 
-  it('Test3: go to daily log using nav bar', async () => {
+  it('go to daily log using nav bar', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5500/source/html/index.html')
@@ -47,7 +47,7 @@ describe('testing index page', () => {
     await browser.close()
   })
 
-  it('Test4: go to collection using nav bar', async () => {
+  it('go to collection using nav bar', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
@@ -65,7 +65,7 @@ describe('testing index page', () => {
     await browser.close()
   })
 
-  it('Test5: go to weekly using nav bar', async () => {
+  it('go to weekly using nav bar', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
@@ -83,7 +83,7 @@ describe('testing index page', () => {
     await browser.close()
   })
 
-  it('Test6: go to weekly using nav bar and go back to index', async () => {
+  it('go to weekly using nav bar and go back to index', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
@@ -106,7 +106,7 @@ describe('testing index page', () => {
     await browser.close()
   })
 
-  it('Test7: go to daily using nav bar and go back to index', async () => {
+  it('go to daily using nav bar and go back to index', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
@@ -128,7 +128,7 @@ describe('testing index page', () => {
     await browser.close()
   }) 
 
-  it('Test8: go to search using nav bar and go back to index', async () => {
+  it('go to search using nav bar and go back to index', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
@@ -150,7 +150,7 @@ describe('testing index page', () => {
     await browser.close()
   })
 
-  it('Test9: go to collection using nav bar and go back to index', async () => {
+  it('go to collection using nav bar and go back to index', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
@@ -172,7 +172,7 @@ describe('testing index page', () => {
     await browser.close()
   })
 
-  it('Test9: go to search using nav bar', async () => {
+  it('go to search using nav bar', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()

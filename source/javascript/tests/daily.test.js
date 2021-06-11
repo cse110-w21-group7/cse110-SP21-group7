@@ -3,7 +3,7 @@ const expect = require('chai').expect
 
 describe('testing daily log page', () => {
 
- it('Test1: adding a reflection', async () => {
+ it('adding a reflection', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:500/source/html/daily.html')
@@ -27,7 +27,7 @@ describe('testing daily log page', () => {
   })
 
 
-  it('Test2: adding an event', async () => {
+  it('adding an event', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
@@ -55,7 +55,7 @@ describe('testing daily log page', () => {
 
   })
 
-  it('Test3: adding a task', async () => {
+  it('adding a task', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
@@ -79,7 +79,7 @@ describe('testing daily log page', () => {
 
   }) 
 
-  it('Test4: adding a note', async () => {
+  it('adding a note', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
@@ -100,7 +100,7 @@ describe('testing daily log page', () => {
 
   })
 
-  it('Test5: collapsing daily log view', async () => {
+  it('collapsing daily log view', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
@@ -118,7 +118,7 @@ describe('testing daily log page', () => {
 
   })
 
-  it('Test6: cancel adding a reflection', async () => {
+  it('cancel adding a reflection', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null})
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5500/source/html/daily.html')
@@ -138,7 +138,7 @@ describe('testing daily log page', () => {
 
   })
 
-  it('Test7: adding a note and canceling', async () => {
+  it('adding a note and canceling', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
@@ -159,7 +159,7 @@ describe('testing daily log page', () => {
 
   })
 
-   it('Test8: adding a blank reflection', async () => {
+   it('adding a blank reflection', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5500/source/html/daily.html')
@@ -185,7 +185,7 @@ describe('testing daily log page', () => {
 
   }) 
 
-  it('Test9: adding a blank note', async () => {
+  it('adding a blank note', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5500/source/html/daily.html')
@@ -211,7 +211,7 @@ describe('testing daily log page', () => {
 
   })
 
-  it('Test10: adding a blank event', async () => {
+  it('adding a blank event', async () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
