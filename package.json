@@ -7,7 +7,7 @@
     "test": "npm run test_unit && npm run test_e2e",
     "test_e2e": "mocha --timeout 100000 --recursive ./source/javascript/tests/e2e/.",
     "test_unit": "mocha --recursive --require @babel/register ./source/javascript/tests/unit_tests/.",
-    "coverage": "nyc npm run test",
+    "coverage": "nyc npm run test_unit",
     "lint_tests": "./node_modules/.bin/eslint source/javascript/tests/.",
     "fix_tests": "./node_modules/.bin/eslint source/javascript/tests/. --fix",
     "lint_src": "./node_modules/.bin/eslint source/javascript/src/.",
