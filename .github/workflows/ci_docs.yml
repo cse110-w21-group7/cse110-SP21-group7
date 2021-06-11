@@ -27,7 +27,7 @@ jobs:
       - run: npm ci
       - run: npm run docs
       - name: Deploy docs
-      - uses: crazy-max/ghaction-github-pages@v2
+        uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: programming-docs
           build_dir: specs/programming_docs
