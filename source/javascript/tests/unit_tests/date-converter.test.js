@@ -4,8 +4,8 @@
  * @author Katherine Baker <klbaker@ucsd.edu>
  */
 
-const DateConverter = require('../src/utils/DateConverter.js')
-import { DateConverter } from '../src/utils/DateConverter.js'
+// const DateConverter = require('../../src/utils/DateConverter.js')
+import { DateConverter } from '../../src/utils/DateConverter.js'
 const should = require('chai').should()
 
 // tester is the UNIX timestamp for  May 24, 2021 at 22:35:30 (PDT)
@@ -102,6 +102,7 @@ describe('Testing DateConverter', function () {
  * Helper function in order to change the value of Date.now() so that the unit
  * tests can be reused
  */
-/*function fakeNow () {
+function fakeNow () {
   return 1621834530000
-}*/
+}
+

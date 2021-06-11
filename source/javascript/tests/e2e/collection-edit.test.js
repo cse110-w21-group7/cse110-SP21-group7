@@ -5,9 +5,9 @@ describe('testing collection edit page', () => {
 
   it('adding a task', async () => {
 
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
+    const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
+    await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/collection-edit.html')
 
     await page.type('#myInput', 'hello')
     await page.click('.addBtn', { clickCount: 1 })
@@ -17,9 +17,10 @@ describe('testing collection edit page', () => {
   })
 
   it('adding multiple tasks', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
+    const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
+    
+    await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/collection-edit.html')
 
     await page.type('#myInput', 'hello')
     await page.$eval('.addBtn', (element) => {
@@ -40,9 +41,9 @@ describe('testing collection edit page', () => {
   })
 
   it('expanding and collapsing collection edit view', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
+    const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
+    await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/collection-edit.html')
 
     await page.$eval('#collapse', (element) => {
       element.click()
@@ -58,9 +59,9 @@ describe('testing collection edit page', () => {
   })
 
   it('adding image to collection', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
+    const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
+    await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/collection-edit.html')
 
     await page.click('#collapse', { clickCount: 1 })
 
@@ -73,9 +74,9 @@ describe('testing collection edit page', () => {
   })
 
   it('adding video to collection', async () => {
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
+    const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
+    await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/collection-edit.html')
 
     await page.$eval('#collapse', (element) => {
       element.click()
@@ -88,9 +89,9 @@ describe('testing collection edit page', () => {
 
   it('attempt to add task with no input text', async () => {
 
-    const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
+    const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
+    await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/collection-edit.html')
 
     await page.type('#myInput', '')
     await page.click('.addBtn', { clickCount: 1 })
