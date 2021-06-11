@@ -4,7 +4,7 @@ const expect = require('chai').expect
 describe('testing collection edit page', () => {
 
   it('adding a task', async () => {
-    
+
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5500/source/html/collection-edit.html')
@@ -13,7 +13,7 @@ describe('testing collection edit page', () => {
     await page.click('.addBtn', { clickCount: 1 })
 
     await browser.close()
-     
+
   })
 
   it('adding multiple tasks', async () => {
@@ -55,7 +55,7 @@ describe('testing collection edit page', () => {
     await page.waitFor(5000)
 
     await browser.close()
-  }) 
+  })
 
   it('adding image to collection', async () => {
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
@@ -81,7 +81,7 @@ describe('testing collection edit page', () => {
       element.click()
     })
 
-    await page.evaluate(()=>document.querySelector('#add-video-btn').click())
+    await page.evaluate(() => document.querySelector('#add-video-btn').click())
 
     await browser.close()
   })

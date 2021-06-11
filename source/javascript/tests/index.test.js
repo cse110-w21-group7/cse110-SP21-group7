@@ -7,7 +7,7 @@ describe('testing index page', () => {
     const page = await browser.newPage()
     await page.goto('http://127.0.0.1:5500/source/html/index.html')
 
-    await page.click('#cb', {clickCount: 1 })
+    await page.click('#cb', { clickCount: 1 })
 
     const url = await page.url()
     expect(url).to.include('source/html/daily.html')
@@ -21,7 +21,7 @@ describe('testing index page', () => {
 
     const [response] = await Promise.all([
       page.$eval('#weeklyNav', el => el.click()),
-      page.waitForNavigation() 
+      page.waitForNavigation()
     ]);
 
     const url = await page.url()
@@ -37,7 +37,7 @@ describe('testing index page', () => {
 
     const [response] = await Promise.all([
       page.$eval('#dailyNav', el => el.click()),
-      page.waitForNavigation() 
+      page.waitForNavigation()
     ]);
 
 
@@ -56,7 +56,7 @@ describe('testing index page', () => {
 
     const [response] = await Promise.all([
       page.$eval('#collectionNav', el => el.click()),
-      page.waitForNavigation() 
+      page.waitForNavigation()
     ]);
 
     const url3 = await page.url()
@@ -74,7 +74,7 @@ describe('testing index page', () => {
 
     const [response] = await Promise.all([
       page.$eval('#weeklyNav', el => el.click()),
-      page.waitForNavigation() 
+      page.waitForNavigation()
     ]);
 
     const url4 = await page.url()
@@ -87,11 +87,11 @@ describe('testing index page', () => {
 
     const browser = await puppeteer.launch({ headless: false, slowMo: 500, defaultViewport: null })
     const page = await browser.newPage()
-    await page.goto('http://127.0.0.1:5500/source/html/index.html') 
+    await page.goto('http://127.0.0.1:5500/source/html/index.html')
 
     const [response] = await Promise.all([
       page.$eval('#weeklyNav', el => el.click()),
-      page.waitForNavigation() 
+      page.waitForNavigation()
     ]);
 
 
@@ -114,7 +114,7 @@ describe('testing index page', () => {
 
     const [response] = await Promise.all([
       page.$eval('#dailyNav', el => el.click()),
-      page.waitForNavigation() 
+      page.waitForNavigation()
     ]);
 
     const url = await page.url()
@@ -126,7 +126,7 @@ describe('testing index page', () => {
     expect(url2).to.be.include('127.0.0.1:5500/source/html/index.html')
 
     await browser.close()
-  }) 
+  })
 
   it('go to search using nav bar and go back to index', async () => {
 
@@ -136,7 +136,7 @@ describe('testing index page', () => {
 
     const [response] = await Promise.all([
       page.$eval('#searchNav', el => el.click()),
-      page.waitForNavigation() 
+      page.waitForNavigation()
     ]);
 
     const url = await page.url()
@@ -158,7 +158,7 @@ describe('testing index page', () => {
 
     const [response] = await Promise.all([
       page.$eval('#collectionNav', el => el.click()),
-      page.waitForNavigation() 
+      page.waitForNavigation()
     ]);
 
     const url = await page.url()
@@ -180,7 +180,7 @@ describe('testing index page', () => {
 
     const [response] = await Promise.all([
       page.$eval('#searchNav', el => el.click()),
-      page.waitForNavigation() 
+      page.waitForNavigation()
     ]);
 
     const url = await page.url()
