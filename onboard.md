@@ -31,7 +31,7 @@ We keep all of the design documentation of our RIVER Bullet Journal app inside t
   - ```npm run fix_src``` can be used to fix some of the linting errors in the existing source files (under `source/javascript/src/.`). Again, if nothing is returned, this indicates that every file follows the agreed-upon style guide.
 
   - ```npm run lint_tests``` can be used to lint all the existing test files (under `source/javascript/tests/.`). If nothing is returned, this indicates that every file follows the agreed-upon style guide.
-  - ```npm run fix_src``` can be used to fix some of the linting errors in the existing test files (under `source/javascript/tests/.`). Again, if nothing is returned, this indicates that every file follows the agreed-upon style guide.
+  - ```npm run fix_tests``` can be used to fix some of the linting errors in the existing test files (under `source/javascript/tests/.`). Again, if nothing is returned, this indicates that every file follows the agreed-upon style guide.
 
 - To design this website, we created 5 [user personas](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/specs/users) for potential users of the RIVER journal.
 
