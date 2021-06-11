@@ -3,7 +3,7 @@ const expect = require('chai').expect
 
 describe('testing index page', () => {
   it('Clicking the add icon, new URL should contain daily.html', async () => {
-    const browser = await puppeteer.launch({ headless: true,  defaultViewport: null })
+    const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
 
@@ -22,7 +22,7 @@ describe('testing index page', () => {
     const [response] = await Promise.all([
       page.$eval('#weeklyNav', el => el.click()),
       page.waitForNavigation()
-    ]);
+    ])
 
     const url = await page.url()
     expect(url).to.be.include('weekly.html')
@@ -38,8 +38,7 @@ describe('testing index page', () => {
     const [response] = await Promise.all([
       page.$eval('#dailyNav', el => el.click()),
       page.waitForNavigation()
-    ]);
-
+    ])
 
     const url4 = await page.url()
     expect(url4).to.be.include('daily.html')
@@ -48,16 +47,14 @@ describe('testing index page', () => {
   })
 
   it('go to collection using nav bar', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
 
-
     const [response] = await Promise.all([
       page.$eval('#collectionNav', el => el.click()),
       page.waitForNavigation()
-    ]);
+    ])
 
     const url3 = await page.url()
     expect(url3).to.be.include('collection.html')
@@ -66,16 +63,14 @@ describe('testing index page', () => {
   })
 
   it('go to weekly using nav bar', async () => {
-
-    const browser = await puppeteer.launch({ headless: true,  defaultViewport: null })
+    const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
-
 
     const [response] = await Promise.all([
       page.$eval('#weeklyNav', el => el.click()),
       page.waitForNavigation()
-    ]);
+    ])
 
     const url4 = await page.url()
     expect(url4).to.be.include('weekly.html')
@@ -84,7 +79,6 @@ describe('testing index page', () => {
   })
 
   it('go to weekly using nav bar and go back to index', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
@@ -92,8 +86,7 @@ describe('testing index page', () => {
     const [response] = await Promise.all([
       page.$eval('#weeklyNav', el => el.click()),
       page.waitForNavigation()
-    ]);
-
+    ])
 
     const url4 = await page.url()
     expect(url4).to.be.include('weekly.html')
@@ -107,7 +100,6 @@ describe('testing index page', () => {
   })
 
   it('go to daily using nav bar and go back to index', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
@@ -115,7 +107,7 @@ describe('testing index page', () => {
     const [response] = await Promise.all([
       page.$eval('#dailyNav', el => el.click()),
       page.waitForNavigation()
-    ]);
+    ])
 
     const url = await page.url()
     expect(url).to.be.include('daily.html')
@@ -129,7 +121,6 @@ describe('testing index page', () => {
   })
 
   it('go to search using nav bar and go back to index', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
@@ -137,7 +128,7 @@ describe('testing index page', () => {
     const [response] = await Promise.all([
       page.$eval('#searchNav', el => el.click()),
       page.waitForNavigation()
-    ]);
+    ])
 
     const url = await page.url()
     expect(url).to.be.include('search.html')
@@ -151,7 +142,6 @@ describe('testing index page', () => {
   })
 
   it('go to collection using nav bar and go back to index', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
@@ -159,7 +149,7 @@ describe('testing index page', () => {
     const [response] = await Promise.all([
       page.$eval('#collectionNav', el => el.click()),
       page.waitForNavigation()
-    ]);
+    ])
 
     const url = await page.url()
     expect(url).to.be.include('collection.html')
@@ -173,7 +163,6 @@ describe('testing index page', () => {
   })
 
   it('go to search using nav bar', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
@@ -181,7 +170,7 @@ describe('testing index page', () => {
     const [response] = await Promise.all([
       page.$eval('#searchNav', el => el.click()),
       page.waitForNavigation()
-    ]);
+    ])
 
     const url = await page.url()
     expect(url).to.be.include('search.html')

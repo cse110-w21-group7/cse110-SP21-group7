@@ -105,4 +105,3 @@ describe('Testing DateConverter', function () {
 function fakeNow () {
   return 1621834530000
 }
-

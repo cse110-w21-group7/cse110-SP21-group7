@@ -2,41 +2,32 @@ const puppeteer = require('puppeteer')
 const expect = require('chai').expect
 
 describe('testing daily log page', () => {
-
   it('adding a reflection', async () => {
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/daily.html')
 
     await page.evaluate(() => {
-      let input = document.querySelector('input[id="input1"]')
+      const input = document.querySelector('input[id="input1"]')
       input.click()
     })
 
     await page.waitFor(2000)
 
-
     await page.type('#input-area', 'hello')
     await page.click('#cb2', { clickCount: 1 })
 
-
-
     await browser.close()
-
-
   })
 
-
   it('adding an event', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/daily.html')
 
-
     await page.evaluate(() => {
-      var test = document.querySelector('input[id="input2"]')
-      test.click();
+      const test = document.querySelector('input[id="input2"]')
+      test.click()
     })
 
     await page.waitFor(2000)
@@ -44,27 +35,20 @@ describe('testing daily log page', () => {
     await page.type('#time-input', '0120a')
     await page.type('#date-input', '04082021')
 
-
-
     await page.type('#input-area', 'hello')
     await page.click('#cb2', { clickCount: 1 })
 
-
-
     await browser.close()
-
   })
 
   it('adding a task', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/daily.html')
 
-
     await page.evaluate(() => {
-      var test = document.querySelector('input[id="input3"]')
-      test.click();
+      const test = document.querySelector('input[id="input3"]')
+      test.click()
     })
 
     await page.waitFor(2000)
@@ -74,21 +58,17 @@ describe('testing daily log page', () => {
     await page.type('#input-area', 'hello')
     await page.click('#cb2', { clickCount: 1 })
 
-
     await browser.close()
-
   })
 
   it('adding a note', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/daily.html')
 
-
     await page.evaluate(() => {
-      var test = document.querySelector('input[id="input4"]')
-      test.click();
+      const test = document.querySelector('input[id="input4"]')
+      test.click()
     })
 
     await page.waitFor(2000)
@@ -97,11 +77,9 @@ describe('testing daily log page', () => {
     await page.click('#cb2', { clickCount: 1 })
 
     await browser.close()
-
   })
 
   it('collapsing daily log view', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/daily.html')
@@ -115,7 +93,6 @@ describe('testing daily log page', () => {
     await page.waitFor(5000)
 
     await browser.close()
-
   })
 
   it('cancel adding a reflection', async () => {
@@ -123,9 +100,8 @@ describe('testing daily log page', () => {
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/daily.html')
 
-
     await page.evaluate(() => {
-      let input = document.querySelector('input[id="input1"]')
+      const input = document.querySelector('input[id="input1"]')
       input.click()
     })
 
@@ -135,19 +111,16 @@ describe('testing daily log page', () => {
     await page.click('#cb1', { clickCount: 1 })
 
     await browser.close()
-
   })
 
   it('adding a note and canceling', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/daily.html')
 
-
     await page.evaluate(() => {
-      var test = document.querySelector('input[id="input4"]')
-      test.click();
+      const test = document.querySelector('input[id="input4"]')
+      test.click()
     })
 
     await page.waitFor(2000)
@@ -156,7 +129,6 @@ describe('testing daily log page', () => {
     await page.click('#cb1', { clickCount: 1 })
 
     await browser.close()
-
   })
 
   it('adding a blank reflection', async () => {
@@ -165,15 +137,15 @@ describe('testing daily log page', () => {
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/daily.html')
 
     await page.evaluate(() => {
-      let input = document.querySelector('input[id="input1"]')
+      const input = document.querySelector('input[id="input1"]')
       input.click()
     })
 
     await page.waitFor(2000)
 
     page.on('dialog', async dialog => {
-      await dialog.accept();
-    });
+      await dialog.accept()
+    })
 
     await page.waitFor(2000)
 
@@ -182,7 +154,6 @@ describe('testing daily log page', () => {
     await page.waitFor(2000)
 
     await browser.close()
-
   })
 
   it('adding a blank note', async () => {
@@ -191,15 +162,15 @@ describe('testing daily log page', () => {
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/daily.html')
 
     await page.evaluate(() => {
-      let input = document.querySelector('input[id="input4"]')
+      const input = document.querySelector('input[id="input4"]')
       input.click()
     })
 
     await page.waitFor(2000)
 
     page.on('dialog', async dialog => {
-      await dialog.accept();
-    });
+      await dialog.accept()
+    })
 
     await page.waitFor(2000)
 
@@ -208,19 +179,16 @@ describe('testing daily log page', () => {
     await page.waitFor(2000)
 
     await browser.close()
-
   })
 
   it('adding a blank event', async () => {
-
     const browser = await puppeteer.launch({ headless: true, defaultViewport: null })
     const page = await browser.newPage()
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/daily.html')
 
-
     await page.evaluate(() => {
-      var test = document.querySelector('input[id="input2"]')
-      test.click();
+      const test = document.querySelector('input[id="input2"]')
+      test.click()
     })
 
     await page.waitFor(2000)
@@ -231,15 +199,11 @@ describe('testing daily log page', () => {
     await page.waitFor(2000)
 
     page.on('dialog', async dialog => {
-      await dialog.accept();
-    });
+      await dialog.accept()
+    })
 
     await page.click('#cb2', { clickCount: 1 })
 
-
-
     await browser.close()
-
   })
-
 })
