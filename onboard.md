@@ -59,7 +59,7 @@ Once we finished our rough design of the website, we moved on to implementing ou
 - You can also check out our status video [here](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/brettherbst-patch-1/admin/videos).
 
 ## Source
-  Inside the [Source](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/brettherbst-patch-1/source) folder, you can find all the sources that we used in building this RIVER Bullet Journal web application. All files are categorized by their file types into different folders, and you can find the files you are looking for easily, for instance, [Javascript](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/brettherbst-patch-1/source/javascript), [HTML](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/brettherbst-patch-1/source/html), and [CSS](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/brettherbst-patch-1/source/css). 
+  Inside the [Source](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/source) folder, you can find all the sources that we used in building this RIVER Bullet Journal web application. All files are categorized by their file types into different subdirectories. The following are links to the directories for [Javascript](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/source/javascript), [HTML](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/source), and [CSS](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/source/css). 
 
 
 ## Testing
