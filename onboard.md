@@ -40,23 +40,23 @@ Once we finished our rough design of the website, we moved on to implementing ou
 
 - Sprint 1
   - [Assign roles](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/main/admin/standups/standup_may6.md)
-  - [Retrospective](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/brettherbst-patch-1/admin/meetings/051521-retrospective.md)
-  - [Review](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/brettherbst-patch-1/admin/meetings/051521-sprint-review.md)
+  - [Retrospective](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/main/admin/meetings/051521-retrospective.md)
+  - [Review](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/main/admin/meetings/051521-sprint-review.md)
   
 - Sprint 2
-  - [Retrospective](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/brettherbst-patch-1/admin/meetings/052221-retrospective2.md)
-  - [Review](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/brettherbst-patch-1/admin/meetings/052221-sprint-2-review.md)
+  - [Retrospective](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/main/admin/meetings/052221-retrospective2.md)
+  - [Review](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/main/admin/meetings/052221-sprint-2-review.md)
 
 - Sprint 3
-  - [Retrospective](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/brettherbst-patch-1/admin/meetings/052921-retro3.md)
-  - [Review](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/brettherbst-patch-1/admin/meetings/052921-sprint-review-3.md)
+  - [Retrospective](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/main/admin/meetings/052921-retro3.md)
+  - [Review](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/main/admin/meetings/052921-sprint-review-3.md)
   
-- Final [Retro](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/brettherbst-patch-1/admin/meetings/060621-finalRetro.md)
+- Final [Retro](https://github.com/cse110-w21-group7/cse110-SP21-group7/blob/main/admin/meetings/060621-finalRetro.md)
 ## Admins
-- You can find our team 7 branding [here](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/brettherbst-patch-1/admin/branding).
-- All of the standup records are in the [standups](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/brettherbst-patch-1/admin/standups)   folder (We had standups every Tuesday, Thursday, and Saturday).
-- We keep all of our meeting notes in the [meetings](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/brettherbst-patch-1/admin/meetings) folder.
-- You can also check out our status video [here](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/brettherbst-patch-1/admin/videos).
+- You can find our team 7 branding [here](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/admin/branding).
+- All of the standup records are in the [standups](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/admin/standups)   folder (We had standups every Tuesday, Thursday, and Saturday).
+- We keep all of our meeting notes in the [meetings](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/admin/meetings) folder.
+- You can also check out our status video [here](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/admin/videos).
 
 ## Source
   Inside the [Source](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/source) folder, you can find all the sources that we used in building this RIVER Bullet Journal web application. All files are categorized by their file types into different subdirectories. The following are links to the directories for [Javascript](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/source/javascript), [HTML](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/source), and [CSS](https://github.com/cse110-w21-group7/cse110-SP21-group7/tree/main/source/css). 
