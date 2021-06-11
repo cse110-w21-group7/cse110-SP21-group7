@@ -20,7 +20,7 @@ describe('testing index page', () => {
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
 
     const [response] = await Promise.all([
-      page.$eval('#weeklyNav', el => el.click()),
+      page.$eval('.nav-weekly', el => el.click()),
       page.waitForNavigation()
     ])
 
@@ -36,7 +36,7 @@ describe('testing index page', () => {
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
 
     const [response] = await Promise.all([
-      page.$eval('#dailyNav', el => el.click()),
+      page.$eval('.nav-daily', el => el.click()),
       page.waitForNavigation()
     ])
 
@@ -52,7 +52,7 @@ describe('testing index page', () => {
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
 
     const [response] = await Promise.all([
-      page.$eval('#collectionNav', el => el.click()),
+      page.$eval('.nav-collection', el => el.click()),
       page.waitForNavigation()
     ])
 
@@ -68,7 +68,7 @@ describe('testing index page', () => {
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
 
     const [response] = await Promise.all([
-      page.$eval('#weeklyNav', el => el.click()),
+      page.$eval('.nav-weekly', el => el.click()),
       page.waitForNavigation()
     ])
 
@@ -84,7 +84,7 @@ describe('testing index page', () => {
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
 
     const [response] = await Promise.all([
-      page.$eval('#weeklyNav', el => el.click()),
+      page.$eval('.nav-weekly', el => el.click()),
       page.waitForNavigation()
     ])
 
@@ -105,7 +105,7 @@ describe('testing index page', () => {
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
 
     const [response] = await Promise.all([
-      page.$eval('#dailyNav', el => el.click()),
+      page.$eval('.nav-daily', el => el.click()),
       page.waitForNavigation()
     ])
 
@@ -126,7 +126,7 @@ describe('testing index page', () => {
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
 
     const [response] = await Promise.all([
-      page.$eval('#searchNav', el => el.click()),
+      page.$eval('.nav-search', el => el.click()),
       page.waitForNavigation()
     ])
 
@@ -147,7 +147,7 @@ describe('testing index page', () => {
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
 
     const [response] = await Promise.all([
-      page.$eval('#collectionNav', el => el.click()),
+      page.$eval('.nav-collection', el => el.click()),
       page.waitForNavigation()
     ])
 
@@ -168,7 +168,7 @@ describe('testing index page', () => {
     await page.goto('https:\/\/cse110-w21-group7.github.io\/cse110-SP21-group7\/index.html')
 
     const [response] = await Promise.all([
-      page.$eval('#searchNav', el => el.click()),
+      page.$eval('.nav-search', el => el.click()),
       page.waitForNavigation()
     ])
 
