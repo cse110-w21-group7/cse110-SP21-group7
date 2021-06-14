@@ -37,7 +37,7 @@ radioContainer.addEventListener('change', () => {
     showTextInput()
   } else if (eventRadio.checked) {
     time.style.visibility = 'visible'
-    time.style.display = 'inline-block'
+    time.style.display = 'inline-block'   // test comment
   } else if (taskRadio.checked) {
     date.style.visibility = 'visible'
     time.style.display = 'none'
